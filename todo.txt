@@ -1,0 +1,21 @@
+5.5 hrs
+
+Death/Victory (going back to level select screen)
+3-match rounds victory
+Losing player chooses map
+Main Menu
+Round setup (num matches, player skins, etc)
+Design levels
+
+Optional:
+Swords-bouncing-off-eachother
+Stage hazards
+Sound effects
+
+0.1
+Damage respawning
+Don't turn while slashing
+Player walking/jumping/diving
+Tileset
+Health
+Beating by jumping on head
