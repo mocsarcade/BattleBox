@@ -14,6 +14,7 @@ var choosing_player = 0
 var num_required_wins = 3
 onready var wins = [$Player1Wins, $Player2Wins]
 onready var glory_spotlights = [$Player1Glory, $Player2Glory]
+onready var selecting_text = [$Player1Selecting, $Player2Selecting]
 
 func _ready():
 	level_names = []
@@ -45,7 +46,8 @@ func _unhandled_input(event):
 				Vector2(0.5, 0.5), Vector2(1, 1), 2,
 				Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 			tween.start()
-			# Level name
+			# Hide players and gui
+			get_tree().call_group("player", "animate", "hide")
 			hide()
 			camera.set_level(level_node)
 		if change_level:
@@ -68,12 +70,14 @@ func hide():
 	for win_texture in wins:
 		win_texture.visible = false
 	is_active = false
+	selecting_text[choosing_player].visible = false
 
 func show():
 	level_name_label.visible = true
 	for win_texture in wins:
 		win_texture.visible = true
 	is_active = true
+	selecting_text[choosing_player].visible = true
 
 func _on_Player_dead(player_num : int):
 	# Change wins num

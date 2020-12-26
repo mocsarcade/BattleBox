@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://player/PlayerTileset.png" type="Texture" id=1]
 [ext_resource path="res://player/PlatformerController.gd" type="Script" id=2]
@@ -408,6 +408,96 @@ tracks/0/keys = {
 "values": [ 32, 33 ]
 }
 
+[sub_resource type="Animation" id=72]
+resource_name = "hide"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ScaleChildren/hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ScaleChildren/hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ScaleChildren/swordbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ScaleChildren/PlayerCore:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BodyCollider:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("HeadCollider:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_freeze"
+} ]
+}
+
 [sub_resource type="Animation" id=17]
 length = 1.6
 step = 0.05
@@ -539,6 +629,20 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "set_freeze"
+} ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -825,6 +929,9 @@ animation = "end_dive"
 [sub_resource type="AnimationNodeAnimation" id=41]
 animation = "freefall"
 
+[sub_resource type="AnimationNodeAnimation" id=73]
+animation = "hide"
+
 [sub_resource type="AnimationNodeAnimation" id=42]
 animation = "idle"
 
@@ -906,6 +1013,12 @@ auto_advance = true
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=74]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=75]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+
 [sub_resource type="AnimationNodeStateMachine" id=67]
 states/die/node = SubResource( 37 )
 states/die/position = Vector2( 603, 76.684 )
@@ -917,6 +1030,8 @@ states/end_dive/node = SubResource( 40 )
 states/end_dive/position = Vector2( 27.2667, 127.684 )
 states/freefall/node = SubResource( 41 )
 states/freefall/position = Vector2( 302, 301.684 )
+states/hide/node = SubResource( 73 )
+states/hide/position = Vector2( 453.856, 17.4902 )
 states/idle/node = SubResource( 43 )
 states/idle/position = Vector2( 302, 127.684 )
 states/jump/node = SubResource( 44 )
@@ -926,17 +1041,17 @@ states/refresh/position = Vector2( 504, 221.684 )
 states/slash/node = SubResource( 46 )
 states/slash/position = Vector2( 302, 17.4902 )
 states/slash2/node = SubResource( 47 )
-states/slash2/position = Vector2( 458.483, 17.4902 )
+states/slash2/position = Vector2( 151.483, 17.4902 )
 states/walk/node = SubResource( 48 )
 states/walk/position = Vector2( 302, 221.684 )
-transitions = [ "idle", "dive", SubResource( 49 ), "dive", "end_dive", SubResource( 50 ), "idle", "refresh", SubResource( 51 ), "refresh", "idle", SubResource( 52 ), "idle", "die", SubResource( 53 ), "idle", "walk", SubResource( 54 ), "walk", "idle", SubResource( 55 ), "end_dive", "idle", SubResource( 56 ), "end_dive", "jump", SubResource( 57 ), "jump", "idle", SubResource( 58 ), "walk", "freefall", SubResource( 59 ), "freefall", "walk", SubResource( 60 ), "idle", "slash", SubResource( 61 ), "slash", "idle", SubResource( 62 ), "slash", "slash2", SubResource( 63 ), "slash2", "idle", SubResource( 64 ), "die", "die_end", SubResource( 65 ), "die_end", "idle", SubResource( 66 ) ]
+transitions = [ "idle", "dive", SubResource( 49 ), "dive", "end_dive", SubResource( 50 ), "idle", "refresh", SubResource( 51 ), "refresh", "idle", SubResource( 52 ), "idle", "die", SubResource( 53 ), "idle", "walk", SubResource( 54 ), "walk", "idle", SubResource( 55 ), "end_dive", "idle", SubResource( 56 ), "end_dive", "jump", SubResource( 57 ), "jump", "idle", SubResource( 58 ), "walk", "freefall", SubResource( 59 ), "freefall", "walk", SubResource( 60 ), "idle", "slash", SubResource( 61 ), "slash", "idle", SubResource( 62 ), "slash", "slash2", SubResource( 63 ), "slash2", "idle", SubResource( 64 ), "die", "die_end", SubResource( 65 ), "die_end", "idle", SubResource( 66 ), "idle", "hide", SubResource( 74 ), "hide", "idle", SubResource( 75 ), "hide", "die", SubResource( 76 ) ]
 start_node = "idle"
-graph_offset = Vector2( -33.1439, 35.5581 )
+graph_offset = Vector2( -33.1439, -5.52991 )
 
 [sub_resource type="AnimationNodeAdd2" id=68]
 
 [sub_resource type="AnimationNodeBlendTree" id=69]
-graph_offset = Vector2( 0, 234.75 )
+graph_offset = Vector2( 0, 317.5 )
 nodes/PlayerEffect/node = SubResource( 36 )
 nodes/PlayerEffect/position = Vector2( 280, 80 )
 nodes/PlayerMovement/node = SubResource( 67 )
@@ -967,7 +1082,7 @@ position = Vector2( 0.5, 0 )
 texture = ExtResource( 1 )
 vframes = 5
 hframes = 8
-frame = 2
+frame = 1
 script = ExtResource( 4 )
 
 [node name="hurtbox" type="Area2D" parent="ScaleChildren" groups=[
@@ -1043,6 +1158,7 @@ anims/dive_rest = SubResource( 13 )
 anims/end_dive = SubResource( 14 )
 anims/end_dive_call = SubResource( 15 )
 anims/freefall = SubResource( 16 )
+anims/hide = SubResource( 72 )
 anims/hurtFlash = SubResource( 17 )
 anims/idle = SubResource( 18 )
 anims/jump = SubResource( 19 )

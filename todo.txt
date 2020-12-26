@@ -2,9 +2,10 @@
 
 Main Menu
 Round setup (num matches, player skins, etc)
+Stats page at end
 Design levels
 Keeping from spawning on other player when level STARTS
-Player-winning glory animation (moment of congratulations for a match being won before RoundManager cleans up)
+Player-winning glory animation (moment of congratulations for a match being won before RoundManager goes back to level select)
 
 Optional:
 Swords-bouncing-off-eachother

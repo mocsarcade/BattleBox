@@ -5,6 +5,7 @@ export(NodePath) var player2 = "."
 
 onready var focal_point_1 = get_node(player1)
 onready var focal_point_2 = get_node(player2)
+var active = false
 
 func set_level(new_level : Node2D):
 	if new_level:
@@ -14,6 +15,7 @@ func set_level(new_level : Node2D):
 		limit_right = new_level.right
 		drag_margin_h_enabled = true
 		drag_margin_v_enabled = true
+		smoothing_enabled = true
 	else:
 		limit_top = -1000
 		limit_bottom = 1000
@@ -21,6 +23,9 @@ func set_level(new_level : Node2D):
 		limit_right = 1000
 		drag_margin_h_enabled = false
 		drag_margin_v_enabled = false
+		position = Vector2.ZERO
+		smoothing_enabled = false
 
 func _process(delta):
+	print(position)
 	global_position = (focal_point_1.global_position + focal_point_2.global_position)/2
