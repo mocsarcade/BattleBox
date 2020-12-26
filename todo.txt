@@ -1,11 +1,12 @@
-5.5 hrs
+8.5 hrs
 
-Death/Victory (going back to level select screen)
 3-match rounds victory
 Losing player chooses map
 Main Menu
 Round setup (num matches, player skins, etc)
 Design levels
+Keeping from spawning on other player when level STARTS
+Player-winning glory animation (moment of congratulations for a match being won before RoundManager cleans up)
 
 Optional:
 Swords-bouncing-off-eachother
@@ -13,6 +14,7 @@ Stage hazards
 Sound effects
 
 0.1
+Level Select
 Damage respawning
 Don't turn while slashing
 Player walking/jumping/diving

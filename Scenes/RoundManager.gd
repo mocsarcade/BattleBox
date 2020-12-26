@@ -41,8 +41,7 @@ func _unhandled_input(event):
 				Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 			tween.start()
 			# Level name
-			level_name_label.visible = false
-			is_active = false
+			hide()
 			camera.set_level(level_node)
 		if change_level:
 			set_level()
@@ -58,3 +57,24 @@ func set_level():
 	get_tree().get_root().add_child(level_node)
 	level_node.scale = Vector2(.5, .5)
 	level_name_label.text = level_names[level_index]
+
+func hide():
+	level_name_label.visible = false
+	is_active = false
+
+func show():
+	level_name_label.visible = true
+	is_active = true
+
+func _on_Player_dead(player_num : int):
+	# Clean up level
+	call_deferred("set_level")
+	camera.set_level(null)
+	Gui.reset_energy()
+	# Move players
+	get_tree().call_group("player", "move_to_menu_position")
+	get_tree().call_group("player", "animate", "idle")
+	get_tree().call_group("player", "suspend_movement", true)
+	get_tree().call_group("player", "reset")
+	# Restart level select
+	show()

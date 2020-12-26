@@ -31,14 +31,6 @@ func _on_hurtbox_area_entered(area):
 	elif area.is_in_group("ladder"):
 		controller.on_ladders += 1
 
-# Bash at body. If the object is destroyed, return true
-func attack(body):
-	if body.has_method("damage"):
-		# TODO: Play sound effect
-		var destroyed = body.damage(false)
-		return destroyed
-	return false
-
 func cliff_damage():
 	health = 0
 	Gui.update_health(player_num, health, MAX_HEALTH)
@@ -48,9 +40,16 @@ var respawn = false
 func damage(isStomp, damage = 1) -> bool:
 	health -= damage
 	Gui.update_health(player_num, health, MAX_HEALTH)
-	respawn = true
+	if health <= 0:
+		controller.emit_signal("dead")
+	else:
+		respawn = true
 	# Player disappears. Return true
 	return true
+
+func reset():
+	health = MAX_HEALTH
+	Gui.update_health(player_num, health, MAX_HEALTH)
 
 func respawn_player():
 	respawn = false

@@ -368,6 +368,9 @@ func stop_skid_perfect():
 # EXTERNAL NODE METHODS
 ####################
 
+func reset():
+	core.reset()
+
 func respawn_player():
 	core.respawn_player()
 
@@ -409,6 +412,10 @@ func damage(isStomp, amount = 1):
 	core.damage(isStomp, amount)
 func heal(amount = 1):
 	core.heal(amount)
+
+onready var menu_position = position
+func move_to_menu_position():
+	position = menu_position
 
 onready var gravity_timer = get_node("GravityTimer")
 func pause_gravity():

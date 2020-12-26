@@ -50,4 +50,6 @@ player1 = NodePath("../Player")
 player2 = NodePath("../Player2")
 
 [node name="Tween" type="Tween" parent="."]
+[connection signal="dead" from="Player2" to="." method="_on_Player_dead" binds= [ 1 ]]
+[connection signal="dead" from="Player" to="." method="_on_Player_dead" binds= [ 0 ]]
 [connection signal="tween_all_completed" from="Tween" to="." method="spawn_players_in"]
