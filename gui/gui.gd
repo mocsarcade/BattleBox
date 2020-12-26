@@ -103,21 +103,21 @@ func crawl(text_length):
 		lettersVisible += delta * speed * letters_per_sec
 		if dialogText.visible_characters >= 39:
 			# Wait for user input
-			while(!Input.is_action_just_pressed("ui_A") and !Input.is_action_just_pressed("ui_B")):
+			while(!Input.is_action_just_pressed(Constants.CONTROLS[0]["jump"]) and !Input.is_action_just_pressed(Constants.CONTROLS[0]["slash"])):
 				yield()
 			dialogText.lines_skipped += 2
 			lettersVisible -= 40
 			dialogText.set_visible_characters(int(lettersVisible))
 			yield()
 		dialogText.set_visible_characters(int(lettersVisible))
-		if Input.is_action_just_pressed("ui_A"):
-			speed = 5
-		elif Input.is_action_just_released("ui_A"):
-			speed = 1
-		if Input.is_action_just_pressed("ui_B"):
-			lettersVisible = 38
+		#if Input.is_action_just_pressed("ui_A"):
+		#	speed = 5
+		#elif Input.is_action_just_released("ui_A"):
+		#	speed = 1
+		#if Input.is_action_just_pressed("ui_B"):
+		#	lettersVisible = 38
 	yield()
 	# Wait for user input
-	while(!Input.is_action_just_pressed("ui_A") and !Input.is_action_pressed("ui_B")):
+	while(!Input.is_action_just_pressed(Constants.CONTROLS[0]["jump"]) and !Input.is_action_pressed(Constants.CONTROLS[0]["slash"])):
 		yield()
 	return

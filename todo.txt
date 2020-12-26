@@ -1,7 +1,5 @@
 8.5 hrs
 
-3-match rounds victory
-Losing player chooses map
 Main Menu
 Round setup (num matches, player skins, etc)
 Design levels
@@ -14,6 +12,8 @@ Stage hazards
 Sound effects
 
 0.1
+Losing player chooses map
+3-match rounds victory (and glory animation)
 Level Select
 Damage respawning
 Don't turn while slashing

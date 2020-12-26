@@ -9,6 +9,11 @@ var level_node : Node = null
 var level_index := 0
 var level_names : Array
 export(String) var levels_file = "res://levels/"
+var choosing_player = 0
+
+var num_required_wins = 3
+onready var wins = [$Player1Wins, $Player2Wins]
+onready var glory_spotlights = [$Player1Glory, $Player2Glory]
 
 func _ready():
 	level_names = []
@@ -28,13 +33,13 @@ func _unhandled_input(event):
 	# This will run once on the frame when the action is first pressed
 	if is_active:
 		var change_level = false
-		if event.is_action_pressed("ui_left"):
+		if event.is_action_pressed(Constants.CONTROLS[choosing_player]["left"]):
 			level_index = wrapi(level_index + 1, 0, level_names.size())
 			change_level = true
-		if event.is_action_pressed("ui_right"):
+		if event.is_action_pressed(Constants.CONTROLS[choosing_player]["right"]):
 			level_index = wrapi(level_index -1, 0, level_names.size())
 			change_level = true
-		if event.is_action_pressed("ui_jump"):
+		if event.is_action_pressed(Constants.CONTROLS[choosing_player]["jump"]):
 			# Scale level up
 			tween.interpolate_property(level_node, "scale",
 				Vector2(0.5, 0.5), Vector2(1, 1), 2,
@@ -60,21 +65,45 @@ func set_level():
 
 func hide():
 	level_name_label.visible = false
+	for win_texture in wins:
+		win_texture.visible = false
 	is_active = false
 
 func show():
 	level_name_label.visible = true
+	for win_texture in wins:
+		win_texture.visible = true
 	is_active = true
 
 func _on_Player_dead(player_num : int):
-	# Clean up level
-	call_deferred("set_level")
-	camera.set_level(null)
-	Gui.reset_energy()
+	# Change wins num
+	var winning_player = 1 - player_num
+	choosing_player = player_num
+	end_level(winning_player)
+
+func end_level(winning_player):
 	# Move players
 	get_tree().call_group("player", "move_to_menu_position")
 	get_tree().call_group("player", "animate", "idle")
 	get_tree().call_group("player", "suspend_movement", true)
 	get_tree().call_group("player", "reset")
+	camera.set_level(null)
+	# Increment win counter
+	var round_won = wins[winning_player].increment()
+	if round_won:
+		show_stats(winning_player)
+	else:
+		reopen_select()
+
+func reopen_select():
+	# Clean up level
+	call_deferred("set_level")
 	# Restart level select
 	show()
+
+func show_stats(winning_player):
+	if level_node:
+		level_node.queue_free()
+	glory_spotlights[winning_player].visible = true
+	level_name_label.text = "Player " + str(winning_player+1) + " Wins!"
+	level_name_label.visible = true

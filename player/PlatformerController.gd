@@ -3,15 +3,6 @@ extends KinematicBody2D
 signal off_cliff
 signal dead
 
-# KEYS
-export(String) var up_action = "ui_up"
-export(String) var left_action = "ui_left"
-export(String) var right_action = "ui_right"
-export(String) var down_action = "ui_down"
-export(String) var jump_action = "ui_jump"
-export(String) var slash_action = "ui_slash"
-export(String) var dive_action = "ui_dive"
-
 # Player values
 export(int) var player_num = 0
 
@@ -94,8 +85,8 @@ func _physics_process(delta):
 	manage_flags()
 
 func move(delta):
-	var horizontal = (Input.get_action_strength(right_action) - Input.get_action_strength(left_action))
-	var vertical = (Input.get_action_strength(down_action) - Input.get_action_strength(up_action))
+	var horizontal = (Input.get_action_strength(Constants.CONTROLS[player_num]["right"]) - Input.get_action_strength(Constants.CONTROLS[player_num]["left"]))
+	var vertical = (Input.get_action_strength(Constants.CONTROLS[player_num]["down"]) - Input.get_action_strength(Constants.CONTROLS[player_num]["up"]))
 	
 	if _stun > 0:
 		horizontal = 0
@@ -274,10 +265,10 @@ var holding_jump = false
 func _unhandled_input(event):
 	if !frozen:
 		# This will run once on the frame when the action is first pressed
-		if event.is_action_pressed(jump_action):
+		if event.is_action_pressed(Constants.CONTROLS[player_num]["jump"]):
 			holding_jump = true
 			jump_timer = JUMP_TIME
-		if event.is_action_released(jump_action):
+		if event.is_action_released(Constants.CONTROLS[player_num]["jump"]):
 			if holding_jump and !diving and velo.y < 0:
 				velo.y *= release_jump_damp
 				#animator["parameters/playback"].travel("freefall")
@@ -285,10 +276,10 @@ func _unhandled_input(event):
 			jump_timer = 0
 		
 		# This will run once on the frame when the action is first pressed
-		if event.is_action_pressed(slash_action):
+		if event.is_action_pressed(Constants.CONTROLS[player_num]["slash"]):
 			slash_time = SLASH_TIME
 		
-		if event.is_action_pressed(dive_action):
+		if event.is_action_pressed(Constants.CONTROLS[player_num]["dive"]):
 			dive()
 
 func jump():
