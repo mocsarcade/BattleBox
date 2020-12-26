@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ShotBox"
-run/main_scene="res://Scenes/RoundManager.tscn"
+run/main_scene="res://Menus/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -1,0 +1,174 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Menus/Cursor.gd" type="Script" id=1]
+[ext_resource path="res://Menus/GameTitle.png" type="Texture" id=2]
+[ext_resource path="res://Menus/MenuBox.png" type="Texture" id=3]
+[ext_resource path="res://Menus/cursor.png" type="Texture" id=4]
+[ext_resource path="res://Menus/QuitAction.gd" type="Script" id=5]
+[ext_resource path="res://Menus/FightAction.gd" type="Script" id=6]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -240.0
+margin_bottom = -300.0
+rect_min_size = Vector2( 240, 0 )
+rect_scale = Vector2( 2, 2 )
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+margin_top = 41.0
+margin_right = 240.0
+margin_bottom = 89.0
+texture = ExtResource( 2 )
+stretch_mode = 3
+
+[node name="MainMenu" type="NinePatchRect" parent="VBoxContainer"]
+margin_top = 109.0
+margin_right = 240.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 0, 55 )
+texture = ExtResource( 3 )
+patch_margin_left = 12
+patch_margin_top = 9
+patch_margin_right = 11
+patch_margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fight" type="Label" parent="VBoxContainer/MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 9.0
+margin_right = -8.0
+margin_bottom = -27.0
+text = "Fight!"
+valign = 1
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Label" parent="VBoxContainer/MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 25.0
+margin_right = -8.0
+margin_bottom = -11.0
+text = "Quit"
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cursor" type="TextureRect" parent="VBoxContainer/MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 9.0
+margin_right = -216.0
+margin_bottom = -30.0
+texture = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RoundOptions" type="NinePatchRect" parent="VBoxContainer"]
+margin_top = 184.0
+margin_right = 240.0
+margin_bottom = 259.0
+rect_min_size = Vector2( 0, 75 )
+texture = ExtResource( 3 )
+patch_margin_left = 12
+patch_margin_top = 9
+patch_margin_right = 11
+patch_margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Matches" type="Label" parent="VBoxContainer/RoundOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 12.0
+margin_right = -158.0
+margin_bottom = -43.0
+text = "Matches:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MatchNum" type="Label" parent="VBoxContainer/RoundOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 88.0
+margin_top = 12.0
+margin_right = -144.0
+margin_bottom = -43.0
+text = "3"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/RoundOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 104.0
+margin_top = 12.0
+margin_right = -20.0
+margin_bottom = -43.0
+min_value = 3.0
+max_value = 9.0
+value = 3.0
+editable = false
+scrollable = false
+tick_count = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map Selection" type="Label" parent="VBoxContainer/RoundOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 28.0
+margin_right = -8.0
+margin_bottom = -27.0
+text = "Map Selection: Losers Choice"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Label" parent="VBoxContainer/RoundOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 44.0
+margin_right = -8.0
+margin_bottom = -11.0
+text = "Start"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

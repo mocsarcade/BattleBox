@@ -27,5 +27,4 @@ func set_level(new_level : Node2D):
 		smoothing_enabled = false
 
 func _process(delta):
-	print(position)
 	global_position = (focal_point_1.global_position + focal_point_2.global_position)/2

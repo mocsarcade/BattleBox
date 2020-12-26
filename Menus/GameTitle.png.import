@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WinPedestal.png-9e93b87f2492ae4de4ae4ab0603fb305.stex"
+path="res://.import/GameTitle.png-d5443f0e40c39f87504277fd769c01b1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/WinPedestal.png"
-dest_files=[ "res://.import/WinPedestal.png-9e93b87f2492ae4de4ae4ab0603fb305.stex" ]
+source_file="res://Menus/GameTitle.png"
+dest_files=[ "res://.import/GameTitle.png-d5443f0e40c39f87504277fd769c01b1.stex" ]
 
 [params]
 

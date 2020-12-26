@@ -1,6 +1,5 @@
-8.5 hrs
+10.5 hrs
 
-Main Menu
 Round setup (num matches, player skins, etc)
 Stats page at end
 Design levels
@@ -13,6 +12,7 @@ Stage hazards
 Sound effects
 
 0.1
+Main Menu
 Losing player chooses map
 3-match rounds victory (and glory animation)
 Level Select
