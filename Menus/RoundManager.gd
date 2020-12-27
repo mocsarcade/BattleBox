@@ -10,11 +10,16 @@ var level_index := 0
 var level_names : Array
 export(String) var levels_file = "res://levels/"
 var choosing_player = 0
+var player_won := -1
 
-var num_required_wins = 3
 onready var wins = [$Player1Wins, $Player2Wins]
 onready var glory_spotlights = [$Player1Glory, $Player2Glory]
 onready var selecting_text = [$Player1Selecting, $Player2Selecting]
+
+func init(num_matches : int, skins : Array):
+	wins = [$Player1Wins, $Player2Wins]
+	for win in wins:
+		win.set_required_wins(num_matches)
 
 func _ready():
 	level_names = []
@@ -52,6 +57,13 @@ func _unhandled_input(event):
 			camera.set_level(level_node)
 		if change_level:
 			set_level()
+	if player_won >= 0:
+		if event.is_action_pressed(Constants.CONTROLS[player_won]["jump"]):
+			# Create Scene
+			var round_inst = load("res://Menus/MainMenu.tscn").instance()
+			get_tree().get_root().call_deferred("add_child", round_inst)
+			# Free
+			queue_free()
 
 func spawn_players_in():
 	# Spawn player
@@ -111,3 +123,4 @@ func show_stats(winning_player):
 	glory_spotlights[winning_player].visible = true
 	level_name_label.text = "Player " + str(winning_player+1) + " Wins!"
 	level_name_label.visible = true
+	player_won = winning_player

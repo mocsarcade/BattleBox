@@ -10,3 +10,8 @@ func increment():
 	if cur_wins >= required_wins:
 		return true
 	return false
+
+func set_required_wins(num_wins):
+	required_wins = num_wins
+	max_value = num_wins
+	$AnimationPlayer.play("Matches" + str(num_wins))

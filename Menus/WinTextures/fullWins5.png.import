@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/emptyWins.png-5fab637b256e3d57dd93f525404e4aa5.stex"
+path="res://.import/fullWins5.png-b3e84f0b2694ea45ce600342244a54a5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/emptyWins.png"
-dest_files=[ "res://.import/emptyWins.png-5fab637b256e3d57dd93f525404e4aa5.stex" ]
+source_file="res://Menus/WinTextures/fullWins5.png"
+dest_files=[ "res://.import/fullWins5.png-b3e84f0b2694ea45ce600342244a54a5.stex" ]
 
 [params]
 

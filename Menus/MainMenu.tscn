@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Menus/Cursor.gd" type="Script" id=1]
 [ext_resource path="res://Menus/GameTitle.png" type="Texture" id=2]
@@ -6,8 +6,10 @@
 [ext_resource path="res://Menus/cursor.png" type="Texture" id=4]
 [ext_resource path="res://Menus/QuitAction.gd" type="Script" id=5]
 [ext_resource path="res://Menus/FightAction.gd" type="Script" id=6]
+[ext_resource path="res://Menus/SignalEmitter.gd" type="Script" id=7]
+[ext_resource path="res://Menus/MatchesAction.gd" type="Script" id=8]
 
-[node name="Control" type="Control"]
+[node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -58,7 +60,7 @@ margin_right = -8.0
 margin_bottom = -27.0
 text = "Fight!"
 valign = 1
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -113,36 +115,34 @@ margin_right = -158.0
 margin_bottom = -43.0
 text = "Matches:"
 valign = 1
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MatchNum" type="Label" parent="VBoxContainer/RoundOptions"]
+[node name="MatchNum" type="Label" parent="VBoxContainer/RoundOptions/Matches"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 88.0
-margin_top = 12.0
-margin_right = -144.0
-margin_bottom = -43.0
+margin_left = 64.0
+margin_right = 14.0
 text = "3"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/RoundOptions"]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/RoundOptions/Matches"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 104.0
-margin_top = 12.0
-margin_right = -20.0
-margin_bottom = -43.0
-min_value = 3.0
-max_value = 9.0
+margin_left = 80.0
+margin_top = -4.0
+margin_right = 134.0
+min_value = 1.0
+max_value = 5.0
 value = 3.0
 editable = false
 scrollable = false
-tick_count = 7
+tick_count = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -169,6 +169,25 @@ margin_right = -8.0
 margin_bottom = -11.0
 text = "Start"
 valign = 1
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+matchnum_node = NodePath("../Matches")
+
+[node name="Cursor2" type="TextureRect" parent="VBoxContainer/RoundOptions"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 12.0
+margin_right = -216.0
+margin_bottom = -47.0
+texture = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+is_active = false
+[connection signal="selected" from="VBoxContainer/MainMenu/Fight" to="VBoxContainer/MainMenu/Cursor" method="set_active" binds= [ false ]]
+[connection signal="selected" from="VBoxContainer/MainMenu/Fight" to="VBoxContainer/RoundOptions/Cursor2" method="set_active" binds= [ true ]]

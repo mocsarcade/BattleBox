@@ -1,0 +1,167 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Menus/WinTextures/fullWins.png" type="Texture" id=1]
+[ext_resource path="res://Menus/WinTextures/emptyWins.png" type="Texture" id=2]
+[ext_resource path="res://Menus/WinTracker.gd" type="Script" id=3]
+[ext_resource path="res://Menus/WinTextures/fullWins2.png" type="Texture" id=4]
+[ext_resource path="res://Menus/WinTextures/emptyWins5.png" type="Texture" id=5]
+[ext_resource path="res://Menus/WinTextures/emptyWins2.png" type="Texture" id=6]
+[ext_resource path="res://Menus/WinTextures/fullWins5.png" type="Texture" id=7]
+[ext_resource path="res://Menus/WinTextures/fullWins4.png" type="Texture" id=8]
+[ext_resource path="res://Menus/WinTextures/emptyWins4.png" type="Texture" id=9]
+[ext_resource path="res://Menus/WinTextures/fullWins1.png" type="Texture" id=10]
+[ext_resource path="res://Menus/WinTextures/emptyWins1.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Matches1"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:texture_under")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 11 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Matches2"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture_under")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:texture_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Matches3"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture_under")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:texture_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Matches4"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture_under")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:texture_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 8 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Matches5"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture_under")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:texture_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+
+[node name="Player1Wins" type="TextureProgress"]
+margin_right = 32.0
+margin_bottom = 40.0
+max_value = 3.0
+texture_under = ExtResource( 11 )
+texture_progress = ExtResource( 10 )
+fill_mode = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Matches1 = SubResource( 1 )
+anims/Matches2 = SubResource( 2 )
+anims/Matches3 = SubResource( 3 )
+anims/Matches4 = SubResource( 4 )
+anims/Matches5 = SubResource( 5 )

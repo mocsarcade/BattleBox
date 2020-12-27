@@ -6,6 +6,10 @@ extends TextureRect
 var selected_label = null
 export(bool) var is_active = true
 
+func set_active(flag):
+	is_active = flag
+	visible = flag
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	move_cursor(0)
@@ -24,5 +28,12 @@ func _input(event):
 			move_cursor(1)
 		elif Input.is_action_just_pressed("ui_up"):
 			move_cursor(-1)
+		if Input.is_action_just_pressed("ui_left"):
+			if selected_label.has_method("move_direc"):
+				selected_label.move_direc(-1)
+		elif Input.is_action_just_pressed("ui_right"):
+			if selected_label.has_method("move_direc"):
+				selected_label.move_direc(1)
 		elif Input.is_action_just_pressed("ui_jump"):
-			selected_label.select()
+			if selected_label.has_method("select"):
+				selected_label.select()
