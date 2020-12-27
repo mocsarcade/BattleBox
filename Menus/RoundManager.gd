@@ -20,6 +20,10 @@ func init(num_matches : int, skins : Array):
 	wins = [$Player1Wins, $Player2Wins]
 	for win in wins:
 		win.set_required_wins(num_matches)
+	# Set player skins
+	var players = [$Player, $Player2]
+	for index in players.size():
+		players[index].set_skin(skins[index])
 
 func _ready():
 	level_names = []

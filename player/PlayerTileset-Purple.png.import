@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Capture.PNG-c833f04e03572d34e445beab24507570.stex"
+path="res://.import/PlayerTileset-Purple.png-d19a1143c1fee5a6013f5e37fb3576af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common/Capture.PNG"
-dest_files=[ "res://.import/Capture.PNG-c833f04e03572d34e445beab24507570.stex" ]
+source_file="res://player/PlayerTileset-Purple.png"
+dest_files=[ "res://.import/PlayerTileset-Purple.png-d19a1143c1fee5a6013f5e37fb3576af.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/turnFX.png-116d5d378b94761736e5847f3411ec0d.stex"
+path="res://.import/PlayerTileset-cowboy.png-2acc127d2fb32e4db80d2e34f9e19398.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/turnFX.png"
-dest_files=[ "res://.import/turnFX.png-116d5d378b94761736e5847f3411ec0d.stex" ]
+source_file="res://player/PlayerTileset-cowboy.png"
+dest_files=[ "res://.import/PlayerTileset-cowboy.png-2acc127d2fb32e4db80d2e34f9e19398.stex" ]
 
 [params]
 

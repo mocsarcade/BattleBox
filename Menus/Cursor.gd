@@ -22,18 +22,19 @@ func move_cursor(direction):
 		selected_label = get_parent().get_child(index)
 	rect_position.y = selected_label.rect_position.y
 
-func _input(event):
+func _unhandled_input(event):
 	if is_active:
-		if Input.is_action_just_pressed("ui_down"):
-			move_cursor(1)
-		elif Input.is_action_just_pressed("ui_up"):
-			move_cursor(-1)
-		if Input.is_action_just_pressed("ui_left"):
-			if selected_label.has_method("move_direc"):
-				selected_label.move_direc(-1)
-		elif Input.is_action_just_pressed("ui_right"):
-			if selected_label.has_method("move_direc"):
-				selected_label.move_direc(1)
-		elif Input.is_action_just_pressed("ui_jump"):
-			if selected_label.has_method("select"):
-				selected_label.select()
+		for index in Constants.CONTROLS.size():
+			if Input.is_action_just_pressed(Constants.CONTROLS[index]["down"]):
+				move_cursor(1)
+			elif Input.is_action_just_pressed(Constants.CONTROLS[index]["up"]):
+				move_cursor(-1)
+			if Input.is_action_just_pressed(Constants.CONTROLS[index]["left"]):
+				if selected_label.has_method("move_direc"):
+					selected_label.move_direc(index, -1)
+			elif Input.is_action_just_pressed(Constants.CONTROLS[index]["right"]):
+				if selected_label.has_method("move_direc"):
+					selected_label.move_direc(index, 1)
+			elif Input.is_action_just_pressed(Constants.CONTROLS[index]["jump"]):
+				if selected_label.has_method("select"):
+					selected_label.select()

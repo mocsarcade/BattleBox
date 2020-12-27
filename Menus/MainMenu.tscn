@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Menus/Cursor.gd" type="Script" id=1]
 [ext_resource path="res://Menus/GameTitle.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Menus/FightAction.gd" type="Script" id=6]
 [ext_resource path="res://Menus/SignalEmitter.gd" type="Script" id=7]
 [ext_resource path="res://Menus/MatchesAction.gd" type="Script" id=8]
+[ext_resource path="res://Menus/SkinAction.gd" type="Script" id=9]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=10]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -110,9 +112,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 24.0
-margin_top = 12.0
+margin_top = 4.0
 margin_right = -158.0
-margin_bottom = -43.0
+margin_bottom = -51.0
 text = "Matches:"
 valign = 1
 script = ExtResource( 8 )
@@ -151,22 +153,45 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 24.0
-margin_top = 28.0
+margin_top = 20.0
 margin_right = -8.0
-margin_bottom = -27.0
+margin_bottom = -35.0
 text = "Map Selection: Losers Choice"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Skins" type="Label" parent="VBoxContainer/RoundOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = 36.0
+margin_right = -8.0
+margin_bottom = -19.0
+text = "Skins"
+valign = 1
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="VBoxContainer/RoundOptions/Skins" instance=ExtResource( 10 )]
+position = Vector2( 44, 8 )
+suspended = true
+
+[node name="Player2" parent="VBoxContainer/RoundOptions/Skins" instance=ExtResource( 10 )]
+position = Vector2( 68, 8 )
+player_num = 1
+suspended = true
+
 [node name="Start" type="Label" parent="VBoxContainer/RoundOptions"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 24.0
-margin_top = 44.0
+margin_top = 52.0
 margin_right = -8.0
-margin_bottom = -11.0
+margin_bottom = -3.0
 text = "Start"
 valign = 1
 script = ExtResource( 6 )
@@ -174,6 +199,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 matchnum_node = NodePath("../Matches")
+skins_node = NodePath("../Skins")
 
 [node name="Cursor2" type="TextureRect" parent="VBoxContainer/RoundOptions"]
 visible = false

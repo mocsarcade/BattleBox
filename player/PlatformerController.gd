@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-signal off_cliff
 signal dead
 
 # Player values
@@ -36,7 +35,6 @@ var wall_climbing = false
 #onready var jump_sfx = get_node("SoundJump")
 onready var scale_manager = get_node("ScaleChildren")
 onready var animator = get_node("AnimationTree")
-onready var camera = get_node("../Camera")
 onready var core = get_node("ScaleChildren/PlayerCore")
 
 onready var skidRayCast1 = get_node("SkidRay")
@@ -159,9 +157,6 @@ func move(delta):
 	# Apply Movement
 	if !suspended:
 		velo = move_player(velo)
-	
-	if position.y > camera.limit_bottom + 20:
-		emit_signal("off_cliff")
 
 func calc_direc(ui_direc, cur_speed, accel = ACCELERATION, speed = base_speed):
 	if ui_direc > 0 and cur_speed >= ui_direc*base_speed*.9: # Accelerate right
@@ -392,12 +387,8 @@ func animate(animation):
 	release_all_powers()
 	animator["parameters/PlayerMovement/playback"].travel(animation)
 
-func create_skid():
-	if is_on_floor():
-		var skid = preload("res://player/subscenes/skid.tscn").instance()
-		skid.init(direction)
-		skid.position += position + $ScaleChildren/hitbox/CollisionShape2D.position
-		get_parent().add_child(skid)
+func set_skin(skin_name):
+	animator["parameters/Skin/playback"].travel(skin_name)
 
 func damage(isStomp, amount = 1):
 	core.damage(isStomp, amount)
