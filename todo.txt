@@ -1,17 +1,18 @@
-12 hrs
+13 hrs
 
 Estimated:
-6 more + Testing + Fine Tuning = 5 days
+18.5 hrs + Testing + Fine Tuning = 5 days
 
 Round setup:
-  Player skins (Duck, Horse, Gun, Arcade)
-  Loser Pick Rules
+  Player skins (Horse, Gun, Arcade)
+  Level Pick Rules
 Stats page at end
 Keeping from spawning on other player when level STARTS
 Leaving match pre-emptively by pressing escape
 Design levels
 Player-winning glory animation (moment of congratulations for a match being won before RoundManager goes back to level select)
 Add MIT License
+Player skins (Horse, Arcade)
 
 Optional:
 Remember old match settings

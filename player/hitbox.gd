@@ -1,4 +1,9 @@
 extends Area2D
 
+onready var controller = $"../../"
+
 func get_damage():
-	return 1
+	if controller.is_active():
+		return 1
+	else:
+		return 0

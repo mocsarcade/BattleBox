@@ -321,7 +321,7 @@ func suspend_movement(flag : bool):
 # Universal method for other nodes to know if keys and actions from
 # the player can be used. This is good for dialog, death scenes, etc
 func is_active():
-	return !frozen
+	return !suspended and !frozen
 
 ##############################
 # STATE METHODS

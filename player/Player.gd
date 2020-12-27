@@ -38,14 +38,16 @@ func cliff_damage():
 
 var respawn = false
 func damage(isStomp, damage = 1) -> bool:
-	health -= damage
-	Gui.update_health(player_num, health, MAX_HEALTH)
-	if health <= 0:
-		controller.emit_signal("dead")
-	else:
-		respawn = true
-	# Player disappears. Return true
-	return true
+	if damage > 0:
+		health -= damage
+		Gui.update_health(player_num, health, MAX_HEALTH)
+		if health <= 0:
+			controller.emit_signal("dead")
+		else:
+			respawn = true
+		# Player disappears. Return true
+		return true
+	return false
 
 func reset():
 	health = MAX_HEALTH
