@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Menus/Cursor.gd" type="Script" id=1]
 [ext_resource path="res://Menus/GameTitle.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Menus/MatchesAction.gd" type="Script" id=8]
 [ext_resource path="res://Menus/SkinAction.gd" type="Script" id=9]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Menus/MapSelectionAction.gd" type="Script" id=11]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -158,6 +159,7 @@ margin_right = -8.0
 margin_bottom = -35.0
 text = "Map Selection: Losers Choice"
 valign = 1
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -200,6 +202,7 @@ __meta__ = {
 }
 matchnum_node = NodePath("../Matches")
 skins_node = NodePath("../Skins")
+selection_node = NodePath("../Map Selection")
 
 [node name="Cursor2" type="TextureRect" parent="VBoxContainer/RoundOptions"]
 visible = false

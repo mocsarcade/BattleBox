@@ -4,19 +4,22 @@ onready var camera = $Camera
 onready var level_name_label = $LevelName
 onready var tween = $Tween
 
+var NUM_PLAYERS = 2
+
 var is_active := true
 var level_node : Node = null
 var level_index := 0
 var level_names : Array
 export(String) var levels_file = "res://levels/"
 var choosing_player = 0
+var selection_type = 0
 var player_won := -1
 
 onready var wins = [$Player1Wins, $Player2Wins]
 onready var glory_spotlights = [$Player1Glory, $Player2Glory]
 onready var selecting_text = [$Player1Selecting, $Player2Selecting]
 
-func init(num_matches : int, skins : Array):
+func init(num_matches : int, skins : Array, selection_type_index : int):
 	wins = [$Player1Wins, $Player2Wins]
 	for win in wins:
 		win.set_required_wins(num_matches)
@@ -24,6 +27,9 @@ func init(num_matches : int, skins : Array):
 	var players = [$Player, $Player2]
 	for index in players.size():
 		players[index].set_skin(skins[index])
+	# Selection type
+	selection_type = selection_type_index
+	print(selection_type)
 
 func _ready():
 	level_names = []
@@ -98,7 +104,15 @@ func show():
 func _on_Player_dead(player_num : int):
 	# Change wins num
 	var winning_player = 1 - player_num
-	choosing_player = player_num
+	match selection_type:
+		Constants.SELECTION_TYPES.LOSERS_PICK:
+			choosing_player = player_num
+		Constants.SELECTION_TYPES.WINNERS_PICK:
+			choosing_player = winning_player
+		Constants.SELECTION_TYPES.TURNS:
+			print(choosing_player, "-", NUM_PLAYERS)
+			choosing_player = wrapi(choosing_player + 1, 0, NUM_PLAYERS)
+			print(choosing_player)
 	end_level(winning_player)
 
 func end_level(winning_player):

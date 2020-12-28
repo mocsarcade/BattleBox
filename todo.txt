@@ -1,11 +1,9 @@
-13 hrs
+14.5 hrs
 
 Estimated:
 18.5 hrs + Testing + Fine Tuning = 5 days
 
 Round setup:
-  Player skins (Horse, Gun, Arcade)
-  Level Pick Rules
 Stats page at end
 Keeping from spawning on other player when level STARTS
 Leaving match pre-emptively by pressing escape
@@ -21,6 +19,7 @@ Stage hazards
 Sound effects
 
 0.1
+Round startup settings: Level Pick Rules
 Round startup settings: Player Skins
 Round startup settings: Choosing number of matches
 Main Menu

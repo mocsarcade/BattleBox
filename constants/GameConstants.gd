@@ -26,3 +26,18 @@ var CONTROLS = [
 		"slash": "ui2_slash"
 	}
 ]
+
+enum SELECTION_TYPES {
+	LOSERS_PICK,
+	WINNERS_PICK,
+	TURNS
+}
+
+func get_selection_type_name(selection_index):
+	match selection_index:
+		Constants.SELECTION_TYPES.LOSERS_PICK:
+			return "Losers Pick"
+		Constants.SELECTION_TYPES.WINNERS_PICK:
+			return "Winners Pick"
+		Constants.SELECTION_TYPES.TURNS:
+			return "Turns"
