@@ -15,7 +15,7 @@ const MAX_SPEED = 130
 var BOUNCE_FORCE = 300
 var FALL_MULTIPLIER = 1.1
 var JUMP_STRENGTH = 280
-const SPAWN_MIN_DISTANCE = 20
+const SPAWN_MIN_DISTANCE = 30
 
 # DIVE
 var diving = false

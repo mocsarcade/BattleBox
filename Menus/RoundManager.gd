@@ -69,11 +69,18 @@ func _unhandled_input(event):
 			set_level()
 	if player_won >= 0:
 		if event.is_action_pressed(Constants.CONTROLS[player_won]["jump"]):
-			# Create Scene
-			var round_inst = load("res://Menus/MainMenu.tscn").instance()
-			get_tree().get_root().call_deferred("add_child", round_inst)
-			# Free
-			queue_free()
+			goto_main()
+	elif event.is_action_pressed("ui_cancel"):
+		goto_main()
+
+func goto_main():
+	if level_node:
+		level_node.queue_free()
+	# Create Scene
+	var round_inst = load("res://Menus/MainMenu.tscn").instance()
+	get_tree().get_root().call_deferred("add_child", round_inst)
+	# Free
+	queue_free()
 
 func spawn_players_in():
 	# Spawn player
