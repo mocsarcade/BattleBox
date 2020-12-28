@@ -363,8 +363,13 @@ func respawn_player():
 func respawn():
 	var spawn_points = get_tree().get_nodes_in_group("spawn")
 	var spawn_position = position
-	while spawn_position.distance_to(position) < SPAWN_MIN_DISTANCE:
+	var distance = 0
+	while distance < SPAWN_MIN_DISTANCE:
 		spawn_position = spawn_points[randi() % spawn_points.size()].position
+		distance = INF
+		for player in get_tree().get_nodes_in_group("player"):
+			if spawn_position.distance_to(player.position) < distance:
+				distance = spawn_position.distance_to(player.position)
 	position = spawn_position
 
 func get_direction():
