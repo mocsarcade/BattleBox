@@ -235,8 +235,7 @@ func manage_flags():
 	
 	if slash_time > 0:
 		slash_time -= 1
-		if animator["parameters/PlayerMovement/playback"].get_current_node() != "slash" \
-			and animator["parameters/PlayerMovement/playback"].get_current_node() != "slash2":
+		if !is_slashing():
 			animate("slash")
 			animator["parameters/PlayerMovement/conditions/slash2"] = !animator["parameters/PlayerMovement/conditions/slash2"]
 	
@@ -291,8 +290,8 @@ func jump():
 	animator["parameters/PlayerMovement/conditions/jumping"] = true
 	animator["parameters/PlayerMovement/conditions/not_jumping"] = false
 
-func bounce():
-	var direc = Vector2(0, -BOUNCE_FORCE)
+func bounce(bounce_direction = Vector2.UP):
+	var direc = bounce_direction * BOUNCE_FORCE
 	if !holding_jump:
 		direc *= release_jump_damp
 	push(direc)
@@ -392,6 +391,10 @@ func animate(animation):
 	release_all_powers()
 	animator["parameters/PlayerMovement/playback"].travel(animation)
 
+func is_slashing() -> bool:
+	return animator["parameters/PlayerMovement/playback"].get_current_node() == "slash" \
+		or animator["parameters/PlayerMovement/playback"].get_current_node() == "slash2"
+
 func set_skin(skin_name):
 	animator["parameters/Skin/playback"].travel(skin_name)
 
@@ -411,3 +414,7 @@ func pause_gravity():
 func resume_gravity():
 	gravity = true
 	gravity_timer.stop()
+
+func _on_swordbox_area_entered(area):
+	if area.is_in_group("sword"):
+		bounce(Vector2(-direction, -1))

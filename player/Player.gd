@@ -27,7 +27,11 @@ func _unhandled_input(event):
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("hitbox") and area.get_parent() != get_parent():
 		var damage = area.get_damage()
-		damage(false, damage)
+		# Don't damage if swords are colliding
+		if !area.get_is_stomp() and controller.is_slashing():
+			pass
+		else:
+			damage(damage)
 	elif area.is_in_group("ladder"):
 		controller.on_ladders += 1
 
@@ -37,7 +41,7 @@ func cliff_damage():
 	respawn = true
 
 var respawn = false
-func damage(isStomp, damage = 1) -> bool:
+func damage(damage = 1) -> bool:
 	if damage > 0:
 		health -= damage
 		Gui.update_health(player_num, health, MAX_HEALTH)

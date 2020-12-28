@@ -1,24 +1,24 @@
-14.5 hrs
+15 hrs
 
 Estimated:
 18.5 hrs + Testing + Fine Tuning = 5 days
 
 Round setup:
-Keeping from spawning on other player when level STARTS
-Leaving match pre-emptively by pressing escape
-Design levels
 Player-winning glory animation (moment of congratulations for a match being won before RoundManager goes back to level select)
 Add MIT License
 Swords-bouncing-off-eachother
-Sound effects
 
 Optional:
+Sound effects
+Keeping from spawning on other player when level STARTS
 Player skins (Horse, Arcade)
 Remember old match settings
 Stats page at end
 Stage hazards
 
 0.1
+Design levels
+Leaving match pre-emptively by pressing escape
 Round startup settings: Level Pick Rules
 Round startup settings: Player Skins
 Round startup settings: Choosing number of matches

@@ -64,7 +64,7 @@ height = 0.0
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4.5, 3 )
 
-[sub_resource type="Animation" id=98]
+[sub_resource type="Animation" id=8]
 resource_name = "Skin_Basic"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScaleChildren/PlayerCore:texture")
@@ -79,7 +79,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="Animation" id=99]
+[sub_resource type="Animation" id=9]
 resource_name = "Skin_Cowboy"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScaleChildren/PlayerCore:texture")
@@ -94,7 +94,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 5 ) ]
 }
 
-[sub_resource type="Animation" id=100]
+[sub_resource type="Animation" id=10]
 resource_name = "Skin_Duck"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScaleChildren/PlayerCore:texture")
@@ -109,7 +109,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 8 ) ]
 }
 
-[sub_resource type="Animation" id=101]
+[sub_resource type="Animation" id=11]
 resource_name = "Skin_Gun"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScaleChildren/PlayerCore:texture")
@@ -124,7 +124,7 @@ tracks/0/keys = {
 "values": [ ExtResource( 9 ) ]
 }
 
-[sub_resource type="Animation" id=102]
+[sub_resource type="Animation" id=12]
 resource_name = "Skin_Purple"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScaleChildren/PlayerCore:texture")
@@ -139,10 +139,10 @@ tracks/0/keys = {
 "values": [ ExtResource( 7 ) ]
 }
 
-[sub_resource type="Animation" id=103]
+[sub_resource type="Animation" id=13]
 length = 1.4
 
-[sub_resource type="Animation" id=104]
+[sub_resource type="Animation" id=14]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScaleChildren/hitbox/CollisionShape2D:disabled")
@@ -248,7 +248,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=105]
+[sub_resource type="Animation" id=15]
 length = 0.025
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -301,7 +301,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=106]
+[sub_resource type="Animation" id=16]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScaleChildren/PlayerCore:frame")
 tracks/0/interp = 1
@@ -327,7 +327,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=107]
+[sub_resource type="Animation" id=17]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -343,7 +343,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=108]
+[sub_resource type="Animation" id=18]
 length = 2.0
 step = 0.025
 tracks/0/type = "value"
@@ -373,7 +373,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=109]
+[sub_resource type="Animation" id=19]
 length = 0.01
 step = 0.005
 tracks/0/type = "method"
@@ -454,7 +454,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=110]
+[sub_resource type="Animation" id=20]
 length = 0.001
 step = 0.005
 tracks/0/type = "method"
@@ -472,7 +472,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=111]
+[sub_resource type="Animation" id=21]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScaleChildren/PlayerCore:frame")
 tracks/0/interp = 1
@@ -486,7 +486,7 @@ tracks/0/keys = {
 "values": [ 32, 33 ]
 }
 
-[sub_resource type="Animation" id=112]
+[sub_resource type="Animation" id=22]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScaleChildren/hitbox/CollisionShape2D:disabled")
@@ -575,7 +575,7 @@ tracks/6/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=113]
+[sub_resource type="Animation" id=23]
 length = 1.6
 step = 0.05
 tracks/0/type = "value"
@@ -608,7 +608,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=114]
+[sub_resource type="Animation" id=24]
 length = 1.5
 loop = true
 tracks/0/type = "value"
@@ -722,7 +722,7 @@ tracks/8/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=115]
+[sub_resource type="Animation" id=25]
 step = 0.075
 tracks/0/type = "value"
 tracks/0/path = NodePath("ScaleChildren/PlayerCore:frame")
@@ -749,7 +749,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=116]
+[sub_resource type="Animation" id=26]
 length = 0.25
 step = 0.05
 tracks/0/type = "value"
@@ -765,7 +765,7 @@ tracks/0/keys = {
 "values": [ 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=117]
+[sub_resource type="Animation" id=27]
 length = 0.1
 step = 0.05
 tracks/0/type = "value"
@@ -793,10 +793,10 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=118]
+[sub_resource type="Animation" id=28]
 length = 0.01
 
-[sub_resource type="Animation" id=119]
+[sub_resource type="Animation" id=29]
 length = 0.25
 step = 0.01
 tracks/0/type = "value"
@@ -865,7 +865,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=120]
+[sub_resource type="Animation" id=30]
 length = 0.25
 step = 0.01
 tracks/0/type = "value"
@@ -934,7 +934,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=121]
+[sub_resource type="Animation" id=31]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1132,49 +1132,49 @@ animation = "Skin_Basic"
 [sub_resource type="AnimationNodeAnimation" id=80]
 animation = "Skin_Cowboy"
 
-[sub_resource type="AnimationNodeAnimation" id=92]
+[sub_resource type="AnimationNodeAnimation" id=81]
 animation = "Skin_Duck"
 
-[sub_resource type="AnimationNodeAnimation" id=93]
+[sub_resource type="AnimationNodeAnimation" id=82]
 animation = "Skin_Gun"
 
-[sub_resource type="AnimationNodeAnimation" id=81]
+[sub_resource type="AnimationNodeAnimation" id=83]
 animation = "Skin_Purple"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=82]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=83]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=84]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=85]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=94]
+[sub_resource type="AnimationNodeStateMachineTransition" id=86]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=95]
+[sub_resource type="AnimationNodeStateMachineTransition" id=87]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=96]
+[sub_resource type="AnimationNodeStateMachineTransition" id=88]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=97]
+[sub_resource type="AnimationNodeStateMachineTransition" id=89]
 
-[sub_resource type="AnimationNodeStateMachine" id=86]
+[sub_resource type="AnimationNodeStateMachineTransition" id=90]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=91]
+
+[sub_resource type="AnimationNodeStateMachine" id=92]
 states/Basic/node = SubResource( 79 )
 states/Basic/position = Vector2( 143, 106 )
 states/Cowboy/node = SubResource( 80 )
 states/Cowboy/position = Vector2( 323, 106 )
-states/Duck/node = SubResource( 92 )
+states/Duck/node = SubResource( 81 )
 states/Duck/position = Vector2( -31, 106 )
-states/Gun/node = SubResource( 93 )
+states/Gun/node = SubResource( 82 )
 states/Gun/position = Vector2( 143, 18 )
-states/Purple/node = SubResource( 81 )
+states/Purple/node = SubResource( 83 )
 states/Purple/position = Vector2( 143, 203 )
-transitions = [ "Basic", "Cowboy", SubResource( 82 ), "Cowboy", "Basic", SubResource( 83 ), "Purple", "Basic", SubResource( 84 ), "Basic", "Purple", SubResource( 85 ), "Basic", "Gun", SubResource( 94 ), "Gun", "Basic", SubResource( 95 ), "Basic", "Duck", SubResource( 96 ), "Duck", "Basic", SubResource( 97 ) ]
+transitions = [ "Basic", "Cowboy", SubResource( 84 ), "Cowboy", "Basic", SubResource( 85 ), "Purple", "Basic", SubResource( 86 ), "Basic", "Purple", SubResource( 87 ), "Basic", "Gun", SubResource( 88 ), "Gun", "Basic", SubResource( 89 ), "Basic", "Duck", SubResource( 90 ), "Duck", "Basic", SubResource( 91 ) ]
 start_node = "Basic"
 graph_offset = Vector2( -227.245, 0 )
 
-[sub_resource type="AnimationNodeAdd2" id=87]
+[sub_resource type="AnimationNodeAdd2" id=93]
 
-[sub_resource type="AnimationNodeBlendTree" id=88]
+[sub_resource type="AnimationNodeBlendTree" id=94]
 graph_offset = Vector2( 0, -63.5 )
 nodes/Add2/node = SubResource( 32 )
 nodes/Add2/position = Vector2( 300, 0 )
@@ -1182,18 +1182,18 @@ nodes/PlayerEffect/node = SubResource( 43 )
 nodes/PlayerEffect/position = Vector2( 80, 80 )
 nodes/PlayerMovement/node = SubResource( 78 )
 nodes/PlayerMovement/position = Vector2( 280, 200 )
-nodes/Skin/node = SubResource( 86 )
+nodes/Skin/node = SubResource( 92 )
 nodes/Skin/position = Vector2( 80, -40 )
-nodes/add/node = SubResource( 87 )
+nodes/add/node = SubResource( 93 )
 nodes/add/position = Vector2( 500, 100 )
 nodes/output/position = Vector2( 680, 100 )
 node_connections = [ "output", 0, "add", "Add2", 0, "Skin", "Add2", 1, "PlayerEffect", "add", 0, "PlayerMovement", "add", 1, "Add2" ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=89]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=95]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=90]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=96]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=91]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=97]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "all",
@@ -1209,9 +1209,10 @@ script = ExtResource( 2 )
 [node name="PlayerCore" type="Sprite" parent="ScaleChildren"]
 material = SubResource( 2 )
 position = Vector2( 0.5, 0 )
-texture = ExtResource( 9 )
+texture = ExtResource( 1 )
 vframes = 5
 hframes = 8
+frame = 2
 script = ExtResource( 4 )
 
 [node name="hurtbox" type="Area2D" parent="ScaleChildren" groups=[
@@ -1258,14 +1259,15 @@ frame = 8
 [node name="swordbox" type="Area2D" parent="ScaleChildren" groups=[
 "hitbox",
 "player",
+"sword",
 ]]
 script = ExtResource( 3 )
+is_stomp = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScaleChildren/swordbox"]
 position = Vector2( 17, 3 )
 rotation = 1.5708
 shape = SubResource( 5 )
-disabled = true
 
 [node name="HeadCollider" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.5 )
@@ -1278,46 +1280,46 @@ shape = SubResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 pause_mode = 2
-anims/Skin_Basic = SubResource( 98 )
-anims/Skin_Cowboy = SubResource( 99 )
-anims/Skin_Duck = SubResource( 100 )
-anims/Skin_Gun = SubResource( 101 )
-anims/Skin_Purple = SubResource( 102 )
-anims/aaaaa = SubResource( 103 )
-anims/die = SubResource( 104 )
-anims/die_end = SubResource( 105 )
-anims/dive = SubResource( 106 )
-anims/dive_boost = SubResource( 107 )
-anims/dive_rest = SubResource( 108 )
-anims/end_dive = SubResource( 109 )
-anims/end_dive_call = SubResource( 110 )
-anims/freefall = SubResource( 111 )
-anims/hide = SubResource( 112 )
-anims/hurtFlash = SubResource( 113 )
-anims/idle = SubResource( 114 )
-anims/jump = SubResource( 115 )
-anims/land = SubResource( 116 )
-anims/powerlessOff = SubResource( 117 )
-anims/refresh = SubResource( 118 )
-anims/slash = SubResource( 119 )
-anims/slash2 = SubResource( 120 )
-anims/walk = SubResource( 121 )
+anims/Skin_Basic = SubResource( 8 )
+anims/Skin_Cowboy = SubResource( 9 )
+anims/Skin_Duck = SubResource( 10 )
+anims/Skin_Gun = SubResource( 11 )
+anims/Skin_Purple = SubResource( 12 )
+anims/aaaaa = SubResource( 13 )
+anims/die = SubResource( 14 )
+anims/die_end = SubResource( 15 )
+anims/dive = SubResource( 16 )
+anims/dive_boost = SubResource( 17 )
+anims/dive_rest = SubResource( 18 )
+anims/end_dive = SubResource( 19 )
+anims/end_dive_call = SubResource( 20 )
+anims/freefall = SubResource( 21 )
+anims/hide = SubResource( 22 )
+anims/hurtFlash = SubResource( 23 )
+anims/idle = SubResource( 24 )
+anims/jump = SubResource( 25 )
+anims/land = SubResource( 26 )
+anims/powerlessOff = SubResource( 27 )
+anims/refresh = SubResource( 28 )
+anims/slash = SubResource( 29 )
+anims/slash2 = SubResource( 30 )
+anims/walk = SubResource( 31 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 pause_mode = 2
-tree_root = SubResource( 88 )
+tree_root = SubResource( 94 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Add2/add_amount = 0
-parameters/PlayerEffect/playback = SubResource( 89 )
-parameters/PlayerMovement/playback = SubResource( 90 )
+parameters/PlayerEffect/playback = SubResource( 95 )
+parameters/PlayerMovement/playback = SubResource( 96 )
 parameters/PlayerMovement/conditions/jumping = false
 parameters/PlayerMovement/conditions/not_jumping = true
 parameters/PlayerMovement/conditions/not_walking = true
 parameters/PlayerMovement/conditions/slash2 = false
 parameters/PlayerMovement/conditions/walking = false
 parameters/PlayerMovement/idle/blend_position = 0.0
-parameters/Skin/playback = SubResource( 91 )
+parameters/Skin/playback = SubResource( 97 )
 parameters/add/add_amount = 1.0
 
 [node name="SkidRay" type="RayCast2D" parent="."]
@@ -1356,5 +1358,6 @@ initial_velocity = 10.0
 [connection signal="area_entered" from="ScaleChildren/hurtbox" to="ScaleChildren/PlayerCore" method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="ScaleChildren/hurtbox" to="ScaleChildren/PlayerCore" method="_on_hurtbox_area_exited"]
 [connection signal="body_entered" from="ScaleChildren/hitbox" to="ScaleChildren/PlayerCore" method="_on_hitbox_body_entered"]
+[connection signal="area_entered" from="ScaleChildren/swordbox" to="." method="_on_swordbox_area_entered"]
 [connection signal="timeout" from="GravityTimer" to="." method="resume_gravity"]
 [connection signal="timeout" from="Uninvincible" to="ScaleChildren/PlayerCore" method="turn_invincibilty" binds= [ false ]]
