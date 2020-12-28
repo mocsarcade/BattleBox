@@ -247,6 +247,20 @@ tracks/7/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_freeze"
+} ]
+}
 
 [sub_resource type="Animation" id=15]
 length = 0.025
@@ -1203,6 +1217,7 @@ node_connections = [ "output", 0, "add", "Add2", 0, "Skin", "Add2", 1, "PlayerEf
 rotation = 6.28319
 collision_mask = 3
 script = ExtResource( 2 )
+frozen = true
 
 [node name="ScaleChildren" type="Node2D" parent="."]
 
@@ -1212,7 +1227,7 @@ position = Vector2( 0.5, 0 )
 texture = ExtResource( 1 )
 vframes = 5
 hframes = 8
-frame = 2
+frame = 1
 script = ExtResource( 4 )
 
 [node name="hurtbox" type="Area2D" parent="ScaleChildren" groups=[
@@ -1268,6 +1283,7 @@ is_stomp = false
 position = Vector2( 17, 3 )
 rotation = 1.5708
 shape = SubResource( 5 )
+disabled = true
 
 [node name="HeadCollider" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.5 )

@@ -1,4 +1,4 @@
-15 hrs
+16 hrs
 
 Estimated:
 18.5 hrs + Testing + Fine Tuning = 5 days
@@ -6,7 +6,6 @@ Estimated:
 Round setup:
 Player-winning glory animation (moment of congratulations for a match being won before RoundManager goes back to level select)
 Add MIT License
-Swords-bouncing-off-eachother
 
 Optional:
 Sound effects
@@ -17,6 +16,7 @@ Stats page at end
 Stage hazards
 
 0.1
+Swords-bouncing-off-eachother
 Design levels
 Leaving match pre-emptively by pressing escape
 Round startup settings: Level Pick Rules

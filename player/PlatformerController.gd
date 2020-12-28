@@ -42,7 +42,7 @@ onready var skidRayCast2 = get_node("SkidRay2")
 
 # Movement vars
 var _stun := 0
-var frozen := false
+export(bool) var frozen := false
 export(bool) var suspended := false
 var ignore_air_friction := false
 var direction_lock := false
@@ -55,6 +55,8 @@ var jump_timer = 0
 const JUMP_TIME = 10
 var slash_time = 0
 const SLASH_TIME = 10
+var slash_stun = 0
+const SLASH_STUN = 50
 var coyoteTimer = 0
 var climbing = false
 var air_time = 0
@@ -235,9 +237,11 @@ func manage_flags():
 	
 	if slash_time > 0:
 		slash_time -= 1
-		if !is_slashing():
+		if !is_slashing() and slash_stun <= 0:
 			animate("slash")
 			animator["parameters/PlayerMovement/conditions/slash2"] = !animator["parameters/PlayerMovement/conditions/slash2"]
+	if slash_stun > 0:
+		slash_stun -= 1
 	
 	if jump_timer > 0:
 		jump_timer -= 1
@@ -418,3 +422,5 @@ func resume_gravity():
 func _on_swordbox_area_entered(area):
 	if area.is_in_group("sword"):
 		bounce(Vector2(-direction, -1))
+		slash_stun = SLASH_STUN
+		$ScaleChildren/swordbox/CollisionShape2D.disabled = true
