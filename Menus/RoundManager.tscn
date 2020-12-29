@@ -7,6 +7,7 @@
 [ext_resource path="res://camera/Camera.tscn" type="PackedScene" id=7]
 
 [node name="RoundManager" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="LevelName" type="Label" parent="."]
@@ -24,6 +25,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
+pause_mode = 1
 position = Vector2( -216, 0 )
 suspended = true
 
@@ -69,6 +71,7 @@ angular_velocity = 60.0
 angular_velocity_random = 1.0
 
 [node name="Player2" parent="." instance=ExtResource( 6 )]
+pause_mode = 1
 position = Vector2( 216, 0 )
 player_num = 1
 suspended = true
@@ -130,4 +133,3 @@ player2 = NodePath("../Player2")
 [node name="Tween" type="Tween" parent="."]
 [connection signal="dead" from="Player" to="." method="_on_Player_dead" binds= [ 0 ]]
 [connection signal="dead" from="Player2" to="." method="_on_Player_dead" binds= [ 1 ]]
-[connection signal="tween_all_completed" from="Tween" to="." method="spawn_players_in"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://player/PlayerTileset.png" type="Texture" id=1]
 [ext_resource path="res://player/PlatformerController.gd" type="Script" id=2]
@@ -50,8 +50,8 @@ shader_param/outline_color = Color( 0.564706, 0.564706, 0.564706, 1 )
 extents = Vector2( 5.5, 6 )
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 2.5
-height = 1.5
+radius = 2.0
+height = 3.0
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 5.95073
@@ -291,7 +291,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("HeadCollider:disabled")
+tracks/2/path = NodePath("BodyCollider:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -303,7 +303,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("BodyCollider:disabled")
+tracks/3/path = NodePath("HeadCollider:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -949,6 +949,122 @@ tracks/4/keys = {
 }
 
 [sub_resource type="Animation" id=31]
+resource_name = "true_die"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ScaleChildren/hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ScaleChildren/hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "suspend_movement"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ScaleChildren/swordbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ScaleChildren/PlayerCore:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BodyCollider:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HeadCollider:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_freeze"
+} ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("DeathParticles:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=32]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -964,142 +1080,139 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
 
-[sub_resource type="AnimationNodeAdd2" id=32]
-
-[sub_resource type="AnimationNodeAnimation" id=33]
-animation = "hurtFlash"
+[sub_resource type="AnimationNodeAdd2" id=33]
 
 [sub_resource type="AnimationNodeAnimation" id=34]
-animation = "powerlessFlash"
+animation = "hurtFlash"
 
 [sub_resource type="AnimationNodeAnimation" id=35]
-animation = "powerlessActive"
+animation = "powerlessFlash"
 
 [sub_resource type="AnimationNodeAnimation" id=36]
-animation = "powerlessOff"
+animation = "powerlessActive"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "powerlessOff"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=38]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=39]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=40]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
 
-[sub_resource type="AnimationNodeStateMachine" id=43]
-states/hurtFlash/node = SubResource( 33 )
+[sub_resource type="AnimationNodeStateMachine" id=44]
+states/hurtFlash/node = SubResource( 34 )
 states/hurtFlash/position = Vector2( 386, 204.448 )
-states/powerlessFlash/node = SubResource( 35 )
+states/powerlessFlash/node = SubResource( 36 )
 states/powerlessFlash/position = Vector2( 216, 112 )
-"states/powerlessFlash 2/node" = SubResource( 34 )
+"states/powerlessFlash 2/node" = SubResource( 35 )
 "states/powerlessFlash 2/position" = Vector2( 372, 41.276 )
-states/powerlessOff/node = SubResource( 36 )
+states/powerlessOff/node = SubResource( 37 )
 states/powerlessOff/position = Vector2( 544, 112 )
-transitions = [ "powerlessOff", "powerlessFlash", SubResource( 37 ), "powerlessFlash", "powerlessFlash 2", SubResource( 38 ), "powerlessFlash 2", "powerlessOff", SubResource( 39 ), "powerlessFlash", "hurtFlash", SubResource( 40 ), "hurtFlash", "powerlessOff", SubResource( 41 ), "powerlessOff", "hurtFlash", SubResource( 42 ) ]
+transitions = [ "powerlessOff", "powerlessFlash", SubResource( 38 ), "powerlessFlash", "powerlessFlash 2", SubResource( 39 ), "powerlessFlash 2", "powerlessOff", SubResource( 40 ), "powerlessFlash", "hurtFlash", SubResource( 41 ), "hurtFlash", "powerlessOff", SubResource( 42 ), "powerlessOff", "hurtFlash", SubResource( 43 ) ]
 start_node = "powerlessOff"
 graph_offset = Vector2( 0, -6.624 )
 
-[sub_resource type="AnimationNodeAnimation" id=44]
+[sub_resource type="AnimationNodeAnimation" id=45]
 animation = "die"
 
-[sub_resource type="AnimationNodeAnimation" id=45]
+[sub_resource type="AnimationNodeAnimation" id=46]
 animation = "die_end"
 
-[sub_resource type="AnimationNodeAnimation" id=46]
+[sub_resource type="AnimationNodeAnimation" id=47]
 animation = "dive"
 
-[sub_resource type="AnimationNodeAnimation" id=47]
+[sub_resource type="AnimationNodeAnimation" id=48]
 animation = "end_dive"
 
-[sub_resource type="AnimationNodeAnimation" id=48]
+[sub_resource type="AnimationNodeAnimation" id=49]
 animation = "freefall"
 
-[sub_resource type="AnimationNodeAnimation" id=49]
+[sub_resource type="AnimationNodeAnimation" id=50]
 animation = "hide"
 
-[sub_resource type="AnimationNodeAnimation" id=50]
+[sub_resource type="AnimationNodeAnimation" id=51]
 animation = "idle"
 
-[sub_resource type="AnimationNodeBlendSpace1D" id=51]
-blend_point_0/node = SubResource( 50 )
+[sub_resource type="AnimationNodeBlendSpace1D" id=52]
+blend_point_0/node = SubResource( 51 )
 blend_point_0/pos = 0.0
 min_space = 0.0
 max_space = 4.0
 snap = 1.0
 
-[sub_resource type="AnimationNodeAnimation" id=52]
+[sub_resource type="AnimationNodeAnimation" id=53]
 animation = "jump"
 
-[sub_resource type="AnimationNodeAnimation" id=53]
+[sub_resource type="AnimationNodeAnimation" id=54]
 animation = "refresh"
 
-[sub_resource type="AnimationNodeAnimation" id=54]
+[sub_resource type="AnimationNodeAnimation" id=55]
 animation = "slash"
 
-[sub_resource type="AnimationNodeAnimation" id=55]
+[sub_resource type="AnimationNodeAnimation" id=56]
 animation = "slash2"
 
-[sub_resource type="AnimationNodeAnimation" id=56]
+[sub_resource type="AnimationNodeAnimation" id=57]
+animation = "true_die"
+
+[sub_resource type="AnimationNodeAnimation" id=58]
 animation = "walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=57]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=58]
-advance_condition = "jumping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=59]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=60]
-switch_mode = 2
-auto_advance = true
+advance_condition = "jumping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=61]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=62]
-advance_condition = "walking"
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=63]
-advance_condition = "not_walking"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=64]
+advance_condition = "walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
+advance_condition = "not_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
 switch_mode = 2
 auto_advance = true
 priority = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=65]
-switch_mode = 2
-advance_condition = "jumping"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=66]
-advance_condition = "not_jumping"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=67]
+switch_mode = 2
 advance_condition = "jumping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=68]
 advance_condition = "not_jumping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=69]
+advance_condition = "jumping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=70]
-switch_mode = 2
-auto_advance = true
+advance_condition = "not_jumping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=71]
-advance_condition = "slash2"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=72]
 switch_mode = 2
 auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=73]
+advance_condition = "slash2"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=74]
 switch_mode = 2
@@ -1108,60 +1221,64 @@ auto_advance = true
 [sub_resource type="AnimationNodeStateMachineTransition" id=75]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=76]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=77]
 
-[sub_resource type="AnimationNodeStateMachine" id=78]
-states/die/node = SubResource( 44 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=79]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=102]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=103]
+
+[sub_resource type="AnimationNodeStateMachine" id=82]
+states/die/node = SubResource( 45 )
 states/die/position = Vector2( 603, 76.684 )
-states/die_end/node = SubResource( 45 )
+states/die_end/node = SubResource( 46 )
 states/die_end/position = Vector2( 494.483, 133.558 )
-states/dive/node = SubResource( 46 )
+states/dive/node = SubResource( 47 )
 states/dive/position = Vector2( 27.2667, 46.684 )
-states/end_dive/node = SubResource( 47 )
+states/end_dive/node = SubResource( 48 )
 states/end_dive/position = Vector2( 27.2667, 127.684 )
-states/freefall/node = SubResource( 48 )
+states/freefall/node = SubResource( 49 )
 states/freefall/position = Vector2( 302, 301.684 )
-states/hide/node = SubResource( 49 )
+states/hide/node = SubResource( 50 )
 states/hide/position = Vector2( 453.856, 17.4902 )
-states/idle/node = SubResource( 51 )
+states/idle/node = SubResource( 52 )
 states/idle/position = Vector2( 302, 127.684 )
-states/jump/node = SubResource( 52 )
+states/jump/node = SubResource( 53 )
 states/jump/position = Vector2( 27.2667, 221.684 )
-states/refresh/node = SubResource( 53 )
-states/refresh/position = Vector2( 504, 221.684 )
-states/slash/node = SubResource( 54 )
+states/refresh/node = SubResource( 54 )
+states/refresh/position = Vector2( 151.483, 221.684 )
+states/slash/node = SubResource( 55 )
 states/slash/position = Vector2( 302, 17.4902 )
-states/slash2/node = SubResource( 55 )
+states/slash2/node = SubResource( 56 )
 states/slash2/position = Vector2( 151.483, 17.4902 )
-states/walk/node = SubResource( 56 )
+states/true_die/node = SubResource( 57 )
+states/true_die/position = Vector2( 494.483, 221.684 )
+states/walk/node = SubResource( 58 )
 states/walk/position = Vector2( 302, 221.684 )
-transitions = [ "idle", "dive", SubResource( 57 ), "dive", "end_dive", SubResource( 58 ), "idle", "refresh", SubResource( 59 ), "refresh", "idle", SubResource( 60 ), "idle", "die", SubResource( 61 ), "idle", "walk", SubResource( 62 ), "walk", "idle", SubResource( 63 ), "end_dive", "idle", SubResource( 64 ), "end_dive", "jump", SubResource( 65 ), "jump", "idle", SubResource( 66 ), "walk", "freefall", SubResource( 67 ), "freefall", "walk", SubResource( 68 ), "idle", "slash", SubResource( 69 ), "slash", "idle", SubResource( 70 ), "slash", "slash2", SubResource( 71 ), "slash2", "idle", SubResource( 72 ), "die", "die_end", SubResource( 73 ), "die_end", "idle", SubResource( 74 ), "idle", "hide", SubResource( 75 ), "hide", "idle", SubResource( 76 ), "hide", "die", SubResource( 77 ) ]
+transitions = [ "idle", "dive", SubResource( 59 ), "dive", "end_dive", SubResource( 60 ), "idle", "refresh", SubResource( 61 ), "refresh", "idle", SubResource( 62 ), "idle", "die", SubResource( 63 ), "idle", "walk", SubResource( 64 ), "walk", "idle", SubResource( 65 ), "end_dive", "idle", SubResource( 66 ), "end_dive", "jump", SubResource( 67 ), "jump", "idle", SubResource( 68 ), "walk", "freefall", SubResource( 69 ), "freefall", "walk", SubResource( 70 ), "idle", "slash", SubResource( 71 ), "slash", "idle", SubResource( 72 ), "slash", "slash2", SubResource( 73 ), "slash2", "idle", SubResource( 74 ), "die", "die_end", SubResource( 75 ), "die_end", "idle", SubResource( 76 ), "idle", "hide", SubResource( 77 ), "hide", "idle", SubResource( 78 ), "hide", "die", SubResource( 79 ), "true_die", "idle", SubResource( 102 ), "idle", "true_die", SubResource( 103 ) ]
 start_node = "idle"
-graph_offset = Vector2( -33.1439, -5.52991 )
-
-[sub_resource type="AnimationNodeAnimation" id=79]
-animation = "Skin_Basic"
-
-[sub_resource type="AnimationNodeAnimation" id=80]
-animation = "Skin_Cowboy"
-
-[sub_resource type="AnimationNodeAnimation" id=81]
-animation = "Skin_Duck"
-
-[sub_resource type="AnimationNodeAnimation" id=82]
-animation = "Skin_Gun"
+graph_offset = Vector2( -33.1439, -2.54992 )
 
 [sub_resource type="AnimationNodeAnimation" id=83]
+animation = "Skin_Basic"
+
+[sub_resource type="AnimationNodeAnimation" id=84]
+animation = "Skin_Cowboy"
+
+[sub_resource type="AnimationNodeAnimation" id=85]
+animation = "Skin_Duck"
+
+[sub_resource type="AnimationNodeAnimation" id=86]
+animation = "Skin_Gun"
+
+[sub_resource type="AnimationNodeAnimation" id=87]
 animation = "Skin_Purple"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=84]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=85]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=86]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=87]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=88]
 
@@ -1171,43 +1288,51 @@ animation = "Skin_Purple"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=91]
 
-[sub_resource type="AnimationNodeStateMachine" id=92]
-states/Basic/node = SubResource( 79 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=92]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=93]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=94]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=95]
+
+[sub_resource type="AnimationNodeStateMachine" id=96]
+states/Basic/node = SubResource( 83 )
 states/Basic/position = Vector2( 143, 106 )
-states/Cowboy/node = SubResource( 80 )
+states/Cowboy/node = SubResource( 84 )
 states/Cowboy/position = Vector2( 323, 106 )
-states/Duck/node = SubResource( 81 )
+states/Duck/node = SubResource( 85 )
 states/Duck/position = Vector2( -31, 106 )
-states/Gun/node = SubResource( 82 )
+states/Gun/node = SubResource( 86 )
 states/Gun/position = Vector2( 143, 18 )
-states/Purple/node = SubResource( 83 )
+states/Purple/node = SubResource( 87 )
 states/Purple/position = Vector2( 143, 203 )
-transitions = [ "Basic", "Cowboy", SubResource( 84 ), "Cowboy", "Basic", SubResource( 85 ), "Purple", "Basic", SubResource( 86 ), "Basic", "Purple", SubResource( 87 ), "Basic", "Gun", SubResource( 88 ), "Gun", "Basic", SubResource( 89 ), "Basic", "Duck", SubResource( 90 ), "Duck", "Basic", SubResource( 91 ) ]
+transitions = [ "Basic", "Cowboy", SubResource( 88 ), "Cowboy", "Basic", SubResource( 89 ), "Purple", "Basic", SubResource( 90 ), "Basic", "Purple", SubResource( 91 ), "Basic", "Gun", SubResource( 92 ), "Gun", "Basic", SubResource( 93 ), "Basic", "Duck", SubResource( 94 ), "Duck", "Basic", SubResource( 95 ) ]
 start_node = "Basic"
 graph_offset = Vector2( -227.245, 0 )
 
-[sub_resource type="AnimationNodeAdd2" id=93]
+[sub_resource type="AnimationNodeAdd2" id=97]
 
-[sub_resource type="AnimationNodeBlendTree" id=94]
-graph_offset = Vector2( 0, -63.5 )
-nodes/Add2/node = SubResource( 32 )
+[sub_resource type="AnimationNodeBlendTree" id=98]
+graph_offset = Vector2( 0, 254 )
+nodes/Add2/node = SubResource( 33 )
 nodes/Add2/position = Vector2( 300, 0 )
-nodes/PlayerEffect/node = SubResource( 43 )
+nodes/PlayerEffect/node = SubResource( 44 )
 nodes/PlayerEffect/position = Vector2( 80, 80 )
-nodes/PlayerMovement/node = SubResource( 78 )
+nodes/PlayerMovement/node = SubResource( 82 )
 nodes/PlayerMovement/position = Vector2( 280, 200 )
-nodes/Skin/node = SubResource( 92 )
+nodes/Skin/node = SubResource( 96 )
 nodes/Skin/position = Vector2( 80, -40 )
-nodes/add/node = SubResource( 93 )
+nodes/add/node = SubResource( 97 )
 nodes/add/position = Vector2( 500, 100 )
 nodes/output/position = Vector2( 680, 100 )
 node_connections = [ "output", 0, "add", "Add2", 0, "Skin", "Add2", 1, "PlayerEffect", "add", 0, "PlayerMovement", "add", 1, "Add2" ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=95]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=99]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=96]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=100]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=97]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=101]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "all",
@@ -1227,7 +1352,6 @@ position = Vector2( 0.5, 0 )
 texture = ExtResource( 1 )
 vframes = 5
 hframes = 8
-frame = 1
 script = ExtResource( 4 )
 
 [node name="hurtbox" type="Area2D" parent="ScaleChildren" groups=[
@@ -1295,7 +1419,6 @@ position = Vector2( 0, 5 )
 shape = SubResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-pause_mode = 2
 anims/Skin_Basic = SubResource( 8 )
 anims/Skin_Cowboy = SubResource( 9 )
 anims/Skin_Duck = SubResource( 10 )
@@ -1319,23 +1442,23 @@ anims/powerlessOff = SubResource( 27 )
 anims/refresh = SubResource( 28 )
 anims/slash = SubResource( 29 )
 anims/slash2 = SubResource( 30 )
-anims/walk = SubResource( 31 )
+anims/true_die = SubResource( 31 )
+anims/walk = SubResource( 32 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-pause_mode = 2
-tree_root = SubResource( 94 )
+tree_root = SubResource( 98 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Add2/add_amount = 0
-parameters/PlayerEffect/playback = SubResource( 95 )
-parameters/PlayerMovement/playback = SubResource( 96 )
+parameters/PlayerEffect/playback = SubResource( 99 )
+parameters/PlayerMovement/playback = SubResource( 100 )
 parameters/PlayerMovement/conditions/jumping = false
 parameters/PlayerMovement/conditions/not_jumping = true
 parameters/PlayerMovement/conditions/not_walking = true
 parameters/PlayerMovement/conditions/slash2 = false
 parameters/PlayerMovement/conditions/walking = false
 parameters/PlayerMovement/idle/blend_position = 0.0
-parameters/Skin/playback = SubResource( 97 )
+parameters/Skin/playback = SubResource( 101 )
 parameters/add/add_amount = 1.0
 
 [node name="SkidRay" type="RayCast2D" parent="."]
@@ -1371,6 +1494,18 @@ emission_rect_extents = Vector2( 3, 1 )
 direction = Vector2( 0, 1 )
 gravity = Vector2( 0, 0 )
 initial_velocity = 10.0
+
+[node name="DeathParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2( 0, -1 )
+spread = 60.0
+gravity = Vector2( 0, 60 )
+initial_velocity = 70.0
+initial_velocity_random = 0.75
 [connection signal="area_entered" from="ScaleChildren/hurtbox" to="ScaleChildren/PlayerCore" method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="ScaleChildren/hurtbox" to="ScaleChildren/PlayerCore" method="_on_hurtbox_area_exited"]
 [connection signal="body_entered" from="ScaleChildren/hitbox" to="ScaleChildren/PlayerCore" method="_on_hitbox_body_entered"]

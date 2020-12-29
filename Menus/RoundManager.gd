@@ -57,10 +57,7 @@ func _unhandled_input(event):
 			change_level = true
 		if event.is_action_pressed(Constants.CONTROLS[choosing_player]["jump"]):
 			# Scale level up
-			tween.interpolate_property(level_node, "scale",
-				Vector2(0.5, 0.5), Vector2(1, 1), 2,
-				Tween.TRANS_BACK, Tween.EASE_IN_OUT)
-			tween.start()
+			scale_level(true)
 			# Hide players and gui
 			get_tree().call_group("player", "animate", "hide")
 			hide()
@@ -85,6 +82,23 @@ func goto_main():
 func spawn_players_in():
 	# Spawn player
 	get_tree().call_group("player", "animate", "die")
+
+func scale_level(zoom_inwards : bool):
+	# Decide start and end
+	var start = Vector2.ONE; var end = Vector2(0.5, 0.5)
+	if zoom_inwards:
+		start = Vector2(0.5, 0.5); end = Vector2.ONE
+	# Begin zoom
+	tween.stop_all()
+	tween.interpolate_property(level_node, "scale",
+		start, end, 2,
+		Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	tween.start()
+	# Connect or disconnect tween
+	if zoom_inwards:
+		tween.connect("tween_all_completed", self, "spawn_players_in")
+	else:
+		tween.disconnect("tween_all_completed", self, "spawn_players_in")
 
 func set_level():
 	if level_node:
@@ -120,6 +134,7 @@ func _on_Player_dead(player_num : int):
 			print(choosing_player, "-", NUM_PLAYERS)
 			choosing_player = wrapi(choosing_player + 1, 0, NUM_PLAYERS)
 			print(choosing_player)
+	yield(get_tree().create_timer(4), "timeout")
 	end_level(winning_player)
 
 func end_level(winning_player):
@@ -137,8 +152,9 @@ func end_level(winning_player):
 		reopen_select()
 
 func reopen_select():
-	# Clean up level
-	call_deferred("set_level")
+	# Scale level down
+	level_node.scale = Vector2(.5, .5)
+	#scale_level(false)
 	# Restart level select
 	show()
 

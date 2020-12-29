@@ -15,7 +15,8 @@ signal hurt
 
 func _process(delta):
 	if respawn:
-		animator['parameters/PlayerMovement/playback'].travel('die')
+		print("Respawning!")
+		controller.animate('die')
 
 func _unhandled_input(event):
 	if Constants.DEBUG_MODE:
@@ -47,6 +48,7 @@ func damage(damage = 1) -> bool:
 		Gui.update_health(player_num, health, MAX_HEALTH)
 		if health <= 0:
 			controller.emit_signal("dead")
+			controller.animate('true_die')
 		else:
 			respawn = true
 		# Player disappears. Return true
@@ -71,7 +73,7 @@ func respawn_player():
 	effect_object.start()
 
 func respawn_complete():
-	animator['parameters/PlayerMovement/playback'].travel('idle')
+	controller.animate('idle')
 
 func heal(amo = 1):
 	health = min(health + amo, MAX_HEALTH)
