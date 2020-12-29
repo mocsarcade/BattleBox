@@ -71,7 +71,7 @@ func _unhandled_input(event):
 		goto_main()
 
 func goto_main():
-	if level_node:
+	if level_node and weakref(level_node).get_ref():
 		level_node.queue_free()
 	# Create Scene
 	var round_inst = load("res://Menus/MainMenu.tscn").instance()
@@ -94,11 +94,6 @@ func scale_level(zoom_inwards : bool):
 		start, end, 2,
 		Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	tween.start()
-	# Connect or disconnect tween
-	if zoom_inwards:
-		tween.connect("tween_all_completed", self, "spawn_players_in")
-	else:
-		tween.disconnect("tween_all_completed", self, "spawn_players_in")
 
 func set_level():
 	if level_node:
