@@ -445,13 +445,3 @@ position = Vector2( -192, 80 )
 "spawn",
 ]]
 position = Vector2( 192, 80 )
-
-[node name="Spawn4" type="Node2D" parent="." groups=[
-"spawn",
-]]
-position = Vector2( 80, 32 )
-
-[node name="Spawn5" type="Node2D" parent="." groups=[
-"spawn",
-]]
-position = Vector2( -72, 64 )
