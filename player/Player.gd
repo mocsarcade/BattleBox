@@ -97,6 +97,9 @@ func _on_hurtbox_area_exited(area):
 	if area.is_in_group("ladder"):
 		controller.on_ladders -= 1
 
+onready var bounce_particle_fx = $BounceExplosion
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("player") and body != controller:
-			controller.bounce()
+		controller.bounce()
+		controller.animate('jump')
+		bounce_particle_fx.emitting = true

@@ -84,10 +84,6 @@ func _physics_process(delta):
 	move(delta)
 	manage_flags()
 
-func _process(delta):
-	if player_num == 0:
-		print(animator["parameters/PlayerMovement/playback"].get_current_node())
-
 func move(delta):
 	var horizontal = (Input.get_action_strength(Constants.CONTROLS[player_num]["right"]) - Input.get_action_strength(Constants.CONTROLS[player_num]["left"]))
 	var vertical = (Input.get_action_strength(Constants.CONTROLS[player_num]["down"]) - Input.get_action_strength(Constants.CONTROLS[player_num]["up"]))
@@ -302,8 +298,10 @@ func jump():
 
 func bounce(bounce_direction = Vector2.UP):
 	var direc = bounce_direction * BOUNCE_FORCE
+	ignore_air_friction = true
 	if !holding_jump:
-		direc *= release_jump_damp
+		direc.y *= release_jump_damp
+	print(direc, " - ", holding_jump)
 	push(direc)
 	refresh_flags()
 
@@ -401,6 +399,9 @@ func get_power_node():
 
 func animate(animation):
 	release_all_powers()
+	if animation == 'jump':
+		animator["parameters/PlayerMovement/conditions/jumping"] = true
+		animator["parameters/PlayerMovement/conditions/not_jumping"] = false
 	animator["parameters/PlayerMovement/playback"].travel(animation)
 
 func is_slashing() -> bool:

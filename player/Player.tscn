@@ -47,22 +47,18 @@ shader_param/width = 1.0
 shader_param/outline_color = Color( 0.564706, 0.564706, 0.564706, 1 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 5.5, 6 )
+extents = Vector2( 4.5, 5.5 )
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 2.0
-height = 3.0
+radius = 1.0
+height = 6.75
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 5.95073
 height = 13.4549
 
-[sub_resource type="CapsuleShape2D" id=6]
-radius = 4.5
-height = 0.0
-
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 4.5, 3 )
+extents = Vector2( 4.5, 6.5 )
 
 [sub_resource type="Animation" id=8]
 resource_name = "Skin_Basic"
@@ -235,25 +231,13 @@ tracks/6/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("HeadCollider:disabled")
+tracks/7/type = "method"
+tracks/7/path = NodePath(".")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/8/type = "method"
-tracks/8/path = NodePath(".")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -302,8 +286,8 @@ tracks/2/keys = {
 "update": 1,
 "values": [ false ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("HeadCollider:disabled")
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -311,30 +295,18 @@ tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ false ],
 "method": "set_freeze"
 } ]
 }
-tracks/5/type = "method"
-tracks/5/path = NodePath("ScaleChildren/PlayerCore")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
+tracks/4/type = "method"
+tracks/4/path = NodePath("ScaleChildren/PlayerCore")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -425,75 +397,12 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.005 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.005 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [  ],
-"method": "stop_skid_perfect"
-}, {
 "args": [  ],
 "method": "undive"
 } ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("BodyCollider:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 5 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("BodyCollider:shape:extents")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 4.5, 3 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("HeadCollider:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, -0.5 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("ScaleChildren/hurtbox/CollisionShape2D:shape:extents")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 5.5, 6 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("ScaleChildren/hurtbox/CollisionShape2D:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -590,8 +499,8 @@ tracks/4/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("HeadCollider:disabled")
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -599,8 +508,10 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"values": [ {
+"args": [ true ],
+"method": "set_freeze"
+} ]
 }
 tracks/6/type = "method"
 tracks/6/path = NodePath(".")
@@ -612,31 +523,17 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ true ],
-"method": "set_freeze"
+"args": [ false ],
+"method": "lock_direction"
 } ]
 }
-tracks/7/type = "method"
-tracks/7/path = NodePath(".")
+tracks/7/type = "value"
+tracks/7/path = NodePath("ScaleChildren/slash:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ false ],
-"method": "lock_direction"
-} ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("ScaleChildren/slash:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -716,7 +613,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("HeadCollider:disabled")
+tracks/3/path = NodePath("BodyCollider:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -728,7 +625,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("BodyCollider:disabled")
+tracks/4/path = NodePath("CPUParticles2D2:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -740,7 +637,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("CPUParticles2D2:emitting")
+tracks/5/path = NodePath("ScaleChildren/slash:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -752,7 +649,7 @@ tracks/5/keys = {
 "values": [ false ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("ScaleChildren/slash:visible")
+tracks/6/path = NodePath("ScaleChildren/PlayerCore:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -761,27 +658,15 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
-tracks/7/type = "value"
-tracks/7/path = NodePath("ScaleChildren/PlayerCore:visible")
+tracks/7/type = "method"
+tracks/7/path = NodePath(".")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/8/type = "method"
-tracks/8/path = NodePath(".")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -1079,8 +964,8 @@ tracks/5/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("HeadCollider:disabled")
+tracks/6/type = "method"
+tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1088,30 +973,18 @@ tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/7/type = "method"
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ true ],
 "method": "set_freeze"
 } ]
 }
-tracks/8/type = "value"
-tracks/8/path = NodePath("DeathParticles:emitting")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
+tracks/7/type = "value"
+tracks/7/path = NodePath("DeathParticles:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -1294,6 +1167,8 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=105]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=106]
+
 [sub_resource type="AnimationNodeStateMachine" id=84]
 states/die/node = SubResource( 45 )
 states/die/position = Vector2( 607.856, 53.684 )
@@ -1321,7 +1196,7 @@ states/true_die/node = SubResource( 57 )
 states/true_die/position = Vector2( 494.483, 221.684 )
 states/walk/node = SubResource( 58 )
 states/walk/position = Vector2( 302, 221.684 )
-transitions = [ "idle", "dive", SubResource( 59 ), "dive", "end_dive", SubResource( 60 ), "idle", "refresh", SubResource( 61 ), "refresh", "idle", SubResource( 62 ), "idle", "die", SubResource( 63 ), "idle", "walk", SubResource( 64 ), "walk", "idle", SubResource( 65 ), "end_dive", "idle", SubResource( 66 ), "end_dive", "jump", SubResource( 67 ), "jump", "idle", SubResource( 68 ), "walk", "freefall", SubResource( 69 ), "freefall", "walk", SubResource( 70 ), "idle", "slash", SubResource( 71 ), "slash", "idle", SubResource( 72 ), "slash", "slash2", SubResource( 73 ), "slash2", "idle", SubResource( 74 ), "die", "die_end", SubResource( 75 ), "die_end", "idle", SubResource( 76 ), "idle", "hide", SubResource( 77 ), "hide", "idle", SubResource( 78 ), "hide", "die", SubResource( 79 ), "true_die", "idle", SubResource( 80 ), "idle", "true_die", SubResource( 81 ), "slash2", "hide", SubResource( 104 ), "slash", "hide", SubResource( 105 ) ]
+transitions = [ "idle", "dive", SubResource( 59 ), "dive", "end_dive", SubResource( 60 ), "idle", "refresh", SubResource( 61 ), "refresh", "idle", SubResource( 62 ), "idle", "die", SubResource( 63 ), "idle", "walk", SubResource( 64 ), "walk", "idle", SubResource( 65 ), "end_dive", "idle", SubResource( 66 ), "end_dive", "jump", SubResource( 67 ), "jump", "idle", SubResource( 68 ), "walk", "freefall", SubResource( 69 ), "freefall", "walk", SubResource( 70 ), "idle", "slash", SubResource( 71 ), "slash", "idle", SubResource( 72 ), "slash", "slash2", SubResource( 73 ), "slash2", "idle", SubResource( 74 ), "die", "die_end", SubResource( 75 ), "die_end", "idle", SubResource( 76 ), "idle", "hide", SubResource( 77 ), "hide", "idle", SubResource( 78 ), "hide", "die", SubResource( 79 ), "true_die", "idle", SubResource( 80 ), "idle", "true_die", SubResource( 81 ), "slash2", "hide", SubResource( 104 ), "slash", "hide", SubResource( 105 ), "idle", "jump", SubResource( 106 ) ]
 start_node = "idle"
 graph_offset = Vector2( -71.5889, 3.14609 )
 
@@ -1412,7 +1287,22 @@ position = Vector2( 0.5, 0 )
 texture = ExtResource( 1 )
 vframes = 5
 hframes = 8
+frame = 1
 script = ExtResource( 4 )
+
+[node name="BounceExplosion" type="CPUParticles2D" parent="ScaleChildren/PlayerCore"]
+position = Vector2( -0.5, 8 )
+emitting = false
+amount = 120
+one_shot = true
+explosiveness = 0.5
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 7, 1 )
+direction = Vector2( 0, -1 )
+spread = 60.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 10.0
 
 [node name="hurtbox" type="Area2D" parent="ScaleChildren" groups=[
 "hurtbox",
@@ -1453,7 +1343,7 @@ z_index = 1
 texture = ExtResource( 6 )
 vframes = 3
 hframes = 4
-frame = 10
+frame = 8
 
 [node name="swordbox" type="Area2D" parent="ScaleChildren" groups=[
 "hitbox",
@@ -1469,13 +1359,8 @@ rotation = 1.5708
 shape = SubResource( 5 )
 disabled = true
 
-[node name="HeadCollider" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -0.5 )
-rotation = 0.785398
-shape = SubResource( 6 )
-
 [node name="BodyCollider" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 5 )
+position = Vector2( 0, 1.5 )
 shape = SubResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
