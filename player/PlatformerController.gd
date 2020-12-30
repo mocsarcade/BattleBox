@@ -84,6 +84,10 @@ func _physics_process(delta):
 	move(delta)
 	manage_flags()
 
+func _process(delta):
+	if player_num == 0:
+		print(animator["parameters/PlayerMovement/playback"].get_current_node())
+
 func move(delta):
 	var horizontal = (Input.get_action_strength(Constants.CONTROLS[player_num]["right"]) - Input.get_action_strength(Constants.CONTROLS[player_num]["left"]))
 	var vertical = (Input.get_action_strength(Constants.CONTROLS[player_num]["down"]) - Input.get_action_strength(Constants.CONTROLS[player_num]["up"]))
@@ -240,6 +244,7 @@ func manage_flags():
 		if !is_slashing() and slash_stun <= 0:
 			animate("slash")
 			animator["parameters/PlayerMovement/conditions/slash2"] = !animator["parameters/PlayerMovement/conditions/slash2"]
+			slash_time = 0
 	if slash_stun > 0:
 		slash_stun -= 1
 	
@@ -251,6 +256,7 @@ func manage_flags():
 				or climbing \
 				or diving):
 			jump()
+			jump_timer = 0
 
 func refresh_flags():
 	if coyoteTimer < 5:
@@ -308,6 +314,8 @@ func release_all_powers():
 	if diving:
 		animator["parameters/PlayerMovement/playback"].start("end_dive")
 		undive()
+	jump_timer = 0
+	slash_time = 0
 
 func stun(amo, stun_mult = 3):
 	_stun = amo * stun_mult

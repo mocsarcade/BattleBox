@@ -15,7 +15,6 @@ signal hurt
 
 func _process(delta):
 	if respawn:
-		print("Respawning!")
 		controller.animate('die')
 
 func _unhandled_input(event):
@@ -49,7 +48,10 @@ func damage(damage = 1) -> bool:
 		if health <= 0:
 			controller.emit_signal("dead")
 			controller.animate('true_die')
+			controller.set_freeze(true)
 		else:
+			controller.set_freeze(true)
+			turn_invincibilty(true)
 			respawn = true
 		# Player disappears. Return true
 		return true
