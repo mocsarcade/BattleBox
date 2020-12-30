@@ -13,3 +13,6 @@ func move_direc(player_num, direction):
 
 func get_matchnum() -> int:
 	return match_nums[match_index]
+
+func select(cursor):
+	cursor.move_cursor(1)

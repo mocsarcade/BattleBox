@@ -10,6 +10,9 @@ func move_direc(player_num, direction):
 	player_visuals[player_num].set_skin(skin_names[skin_index[player_num]])
 	print(skin_names[skin_index[player_num]])
 
+func select(cursor):
+	cursor.move_cursor(1)
+
 func get_skinnames() -> int:
 	var ret = []
 	for index in skin_index:

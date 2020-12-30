@@ -2,5 +2,5 @@ extends Label
 
 signal selected
 
-func select():
+func select(_cursor):
 	emit_signal("selected")

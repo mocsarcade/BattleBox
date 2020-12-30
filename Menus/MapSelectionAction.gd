@@ -8,3 +8,6 @@ func move_direc(player_num, direction):
 
 func get_selection_type() -> int:
 	return selection_index
+
+func select(cursor):
+	cursor.move_cursor(1)

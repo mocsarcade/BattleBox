@@ -37,4 +37,4 @@ func _unhandled_input(event):
 					selected_label.move_direc(index, 1)
 			elif Input.is_action_just_pressed(Constants.CONTROLS[index]["jump"]):
 				if selected_label.has_method("select"):
-					selected_label.select()
+					selected_label.select(self)

@@ -1,4 +1,4 @@
 extends Label
 
-func select():
+func select(_cursor):
 	get_tree().quit()
