@@ -101,5 +101,5 @@ onready var bounce_particle_fx = $BounceExplosion
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("player") and body != controller:
 		controller.bounce()
-		controller.animate('jump')
+		controller.call_deferred('animate', 'jump')
 		bounce_particle_fx.emitting = true

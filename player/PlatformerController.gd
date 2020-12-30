@@ -301,7 +301,6 @@ func bounce(bounce_direction = Vector2.UP):
 	ignore_air_friction = true
 	if !holding_jump:
 		direc.y *= release_jump_damp
-	print(direc, " - ", holding_jump)
 	push(direc)
 	refresh_flags()
 
@@ -428,8 +427,10 @@ func resume_gravity():
 	gravity = true
 	gravity_timer.stop()
 
+onready var clash_particle_fx = $ScaleChildren/SlashClashExplosion
 func _on_swordbox_area_entered(area):
 	if area.is_in_group("sword"):
-		bounce(Vector2(-direction, -1))
+		bounce(Vector2(-direction/2.0, -1))
 		slash_stun = SLASH_STUN
 		$ScaleChildren/swordbox/CollisionShape2D.disabled = true
+		clash_particle_fx.emitting = true

@@ -1,18 +1,33 @@
-17 hrs
+19.5 hrs
 
 Estimated:
-18.5 hrs + Testing + Fine Tuning = 5 days
+25 hrs + Testing + Fine Tuning = 3 days
+
+Todo:
+Make hearts red, flashing, and generate when level begins for SUPER noticeability
+Add "Player x wins!" for glory seconds for each match
+Camera zoom out on large levels
+Randomize first pick of match and add "Selecting" text
+Add skins with unique silhouettes
 
 Optional:
 Sound effects
-Keeping from spawning on other player when level STARTS
 Player skins (Horse, Arcade)
 Remember old match settings
 Stats page at end
 Stage hazards
 
+0.2
+Add slash collide particle effects
+Make slash less generous
+Jump FX
+Decrease jump hitbox generosity
+Controller support
+Fix slash-immortality bug
+
 0.1
 Moment of congratulations for a match being won before RoundManager goes back to level select
+Keeping from spawning on other player when level STARTS
 Add MIT License
 Swords-bouncing-off-eachother
 Design levels

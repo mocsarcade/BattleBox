@@ -54,8 +54,8 @@ radius = 1.0
 height = 6.75
 
 [sub_resource type="CapsuleShape2D" id=5]
-radius = 5.95073
-height = 13.4549
+radius = 5.5
+height = 11.75
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4.5, 6.5 )
@@ -1287,7 +1287,6 @@ position = Vector2( 0.5, 0 )
 texture = ExtResource( 1 )
 vframes = 5
 hframes = 8
-frame = 1
 script = ExtResource( 4 )
 
 [node name="BounceExplosion" type="CPUParticles2D" parent="ScaleChildren/PlayerCore"]
@@ -1343,7 +1342,7 @@ z_index = 1
 texture = ExtResource( 6 )
 vframes = 3
 hframes = 4
-frame = 8
+frame = 10
 
 [node name="swordbox" type="Area2D" parent="ScaleChildren" groups=[
 "hitbox",
@@ -1354,10 +1353,26 @@ script = ExtResource( 3 )
 is_stomp = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScaleChildren/swordbox"]
-position = Vector2( 17, 3 )
+position = Vector2( 16, 3 )
 rotation = 1.5708
 shape = SubResource( 5 )
 disabled = true
+
+[node name="SlashClashExplosion" type="CPUParticles2D" parent="ScaleChildren"]
+position = Vector2( 16, 3 )
+z_index = -1
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2( -1, 0 )
+spread = 90.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
 
 [node name="BodyCollider" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1.5 )
