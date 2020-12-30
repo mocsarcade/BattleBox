@@ -49,6 +49,7 @@ func damage(damage = 1) -> bool:
 			controller.emit_signal("dead")
 			controller.animate('true_die')
 			controller.set_freeze(true)
+			respawn = false
 		else:
 			controller.set_freeze(true)
 			turn_invincibilty(true)
