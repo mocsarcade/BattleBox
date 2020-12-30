@@ -218,5 +218,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 is_active = false
-[connection signal="selected" from="VBoxContainer/MainMenu/Fight" to="VBoxContainer/MainMenu/Cursor" method="set_active" binds= [ false ]]
 [connection signal="selected" from="VBoxContainer/MainMenu/Fight" to="VBoxContainer/RoundOptions/Cursor2" method="set_active" binds= [ true ]]
+[connection signal="selected" from="VBoxContainer/MainMenu/Fight" to="VBoxContainer/MainMenu/Cursor" method="set_active" binds= [ false ]]
