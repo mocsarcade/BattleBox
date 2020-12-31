@@ -118,7 +118,7 @@ func show():
 	is_active = true
 	selecting_text[choosing_player].visible = true
 
-onready var winner_label = $WinLabel
+onready var winner_label = $WinLabel/Label
 func _on_Player_dead(player_num : int):
 	# Change wins num
 	var winning_player = 1 - player_num

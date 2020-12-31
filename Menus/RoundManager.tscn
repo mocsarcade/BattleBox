@@ -132,7 +132,10 @@ player2 = NodePath("../Player2")
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="WinLabel" type="Label" parent="."]
+[node name="WinLabel" type="Node2D" parent="."]
+z_index = 10
+
+[node name="Label" type="Label" parent="WinLabel"]
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5

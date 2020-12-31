@@ -2,7 +2,7 @@ extends Label
 
 onready var player_visuals = [$Player, $Player2]
 
-var skin_names = ["Basic", "Cowboy", "Purple", "Duck", "Gun"]
+var skin_names = ["Basic", "Cowboy", "Round", "Gun", "Mushroom"]
 var skin_index = [0, 0]
 
 func move_direc(player_num, direction):
