@@ -4,11 +4,10 @@ Estimated:
 25 hrs + Testing + Fine Tuning = 3 days
 
 Todo:
-Camera zoom out on large levels
-Randomize first pick of match and add "Selecting" text
 Add skins with unique silhouettes
 
 Optional:
+Randomize first pick of match and add "Selecting" text
 Sound effects
 Player skins (Horse, Arcade)
 Remember old match settings
@@ -16,6 +15,7 @@ Stats page at end
 Stage hazards
 
 0.2
+Camera zoom out on large levels
 Add "Player x wins!" for glory seconds for each match
 Add hearts red color, animation, and auto-generation when level begins for SUPER noticeability
 Add slash collide particle effects
