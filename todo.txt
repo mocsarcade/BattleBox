@@ -1,7 +1,10 @@
-20.75 hrs
+22.25 hrs
 
 Estimated:
 25 hrs + Testing + Fine Tuning = 3 days
+
+Todo:
+New Maps
 
 Optional:
 Randomize first pick of match and add "Selecting" text
