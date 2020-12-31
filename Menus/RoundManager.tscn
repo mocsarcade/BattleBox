@@ -30,7 +30,6 @@ position = Vector2( -216, 0 )
 suspended = true
 
 [node name="Player1Selecting" type="Label" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -248.0
@@ -131,6 +130,19 @@ player1 = NodePath("../Player")
 player2 = NodePath("../Player2")
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="WinLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -144.0
+margin_bottom = 14.0
+rect_scale = Vector2( 2, 2 )
+text = "Player 1 Wins!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="dead" from="Player" to="." method="_on_Player_dead" binds= [ 0 ]]
 [connection signal="dead" from="Player2" to="." method="_on_Player_dead" binds= [ 1 ]]
 [connection signal="tween_all_completed" from="Tween" to="." method="spawn_players_in"]

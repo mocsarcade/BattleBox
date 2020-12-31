@@ -4,7 +4,6 @@ Estimated:
 25 hrs + Testing + Fine Tuning = 3 days
 
 Todo:
-Add "Player x wins!" for glory seconds for each match
 Camera zoom out on large levels
 Randomize first pick of match and add "Selecting" text
 Add skins with unique silhouettes
@@ -17,6 +16,7 @@ Stats page at end
 Stage hazards
 
 0.2
+Add "Player x wins!" for glory seconds for each match
 Add hearts red color, animation, and auto-generation when level begins for SUPER noticeability
 Add slash collide particle effects
 Make slash less generous

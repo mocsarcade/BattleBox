@@ -118,6 +118,7 @@ func show():
 	is_active = true
 	selecting_text[choosing_player].visible = true
 
+onready var winner_label = $WinLabel
 func _on_Player_dead(player_num : int):
 	# Change wins num
 	var winning_player = 1 - player_num
@@ -127,10 +128,11 @@ func _on_Player_dead(player_num : int):
 		Constants.SELECTION_TYPES.WINNERS_PICK:
 			choosing_player = winning_player
 		Constants.SELECTION_TYPES.TURNS:
-			print(choosing_player, "-", NUM_PLAYERS)
 			choosing_player = wrapi(choosing_player + 1, 0, NUM_PLAYERS)
-			print(choosing_player)
+	winner_label.visible = true
+	winner_label.text = "Player " + str(winning_player+1) + " wins!"
 	yield(get_tree().create_timer(4), "timeout")
+	winner_label.visible = false
 	end_level(winning_player)
 
 func end_level(winning_player):
