@@ -21,11 +21,6 @@ var prev_down = 0
 #$Player/Camera2D.limit_top = map_limits.position.y * map_cellsize.y
 #$Player/Camera2D.limit_bottom = map_limits.end.y * map_cellsize.y
 
-func _ready():
-	if !Engine.is_editor_hint():
-		VisualServer.set_default_clear_color(col)
-		Gui.start()
-
 var time_passed := 0.0
 func _process(delta):
 	if prev_left != left or prev_right != right \

@@ -60,6 +60,7 @@ func _unhandled_input(event):
 			scale_level(true)
 			# Hide players and gui
 			get_tree().call_group("player", "animate", "hide")
+			Gui.start()
 			hide()
 			camera.set_level(level_node)
 		if change_level:
@@ -134,6 +135,7 @@ func _on_Player_dead(player_num : int):
 
 func end_level(winning_player):
 	# Move players
+	Gui.hide()
 	get_tree().call_group("player", "move_to_menu_position")
 	get_tree().call_group("player", "animate", "idle")
 	get_tree().call_group("player", "suspend_movement", true)

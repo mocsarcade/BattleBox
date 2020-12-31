@@ -1,10 +1,9 @@
-19.5 hrs
+20.75 hrs
 
 Estimated:
 25 hrs + Testing + Fine Tuning = 3 days
 
 Todo:
-Make hearts red, flashing, and generate when level begins for SUPER noticeability
 Add "Player x wins!" for glory seconds for each match
 Camera zoom out on large levels
 Randomize first pick of match and add "Selecting" text
@@ -18,6 +17,7 @@ Stats page at end
 Stage hazards
 
 0.2
+Add hearts red color, animation, and auto-generation when level begins for SUPER noticeability
 Add slash collide particle effects
 Make slash less generous
 Jump FX

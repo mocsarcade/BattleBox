@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fullHealth.png-35baa88726bf5eea8ed62eef1df432cf.stex"
+path="res://.import/health_spin14.png-2f5553b92f9dba2c1954ff1101c6a682.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/fullHealth.png"
-dest_files=[ "res://.import/fullHealth.png-35baa88726bf5eea8ed62eef1df432cf.stex" ]
+source_file="res://gui/healthAnim/health_spin14.png"
+dest_files=[ "res://.import/health_spin14.png-2f5553b92f9dba2c1954ff1101c6a682.stex" ]
 
 [params]
 

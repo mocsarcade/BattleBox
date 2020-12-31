@@ -6,6 +6,12 @@ signal textbox_end
 
 func start():
 	reset_energy()
+	for energy_obj in energy:
+		energy_obj.animate_spawn()
+
+func hide():
+	for energy_obj in energy:
+		energy_obj.hide()
 
 func update_health(player_num, value, max_value):
 	energy[player_num].set_max(max_value)
