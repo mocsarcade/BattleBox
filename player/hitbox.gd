@@ -11,3 +11,6 @@ func get_damage():
 
 func get_is_stomp():
 	return is_stomp
+
+func get_direction() -> int:
+	return controller.get_direction()

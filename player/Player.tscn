@@ -57,7 +57,7 @@ height = 6.75
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 5.5
-height = 11.75
+height = 15.75
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 4.5, 6.5 )
@@ -1227,7 +1227,7 @@ states/walk/node = SubResource( 59 )
 states/walk/position = Vector2( 302, 221.684 )
 transitions = [ "idle", "dive", SubResource( 60 ), "dive", "end_dive", SubResource( 61 ), "idle", "refresh", SubResource( 62 ), "refresh", "idle", SubResource( 63 ), "idle", "die", SubResource( 64 ), "idle", "walk", SubResource( 65 ), "walk", "idle", SubResource( 66 ), "end_dive", "idle", SubResource( 67 ), "end_dive", "jump", SubResource( 68 ), "jump", "idle", SubResource( 69 ), "walk", "freefall", SubResource( 70 ), "freefall", "walk", SubResource( 71 ), "idle", "slash", SubResource( 72 ), "slash", "idle", SubResource( 73 ), "slash", "slash2", SubResource( 74 ), "slash2", "idle", SubResource( 75 ), "die", "die_end", SubResource( 76 ), "die_end", "idle", SubResource( 77 ), "idle", "hide", SubResource( 78 ), "hide", "idle", SubResource( 79 ), "hide", "die", SubResource( 80 ), "true_die", "idle", SubResource( 81 ), "idle", "true_die", SubResource( 82 ), "slash2", "hide", SubResource( 83 ), "slash", "hide", SubResource( 84 ), "idle", "jump", SubResource( 85 ) ]
 start_node = "idle"
-graph_offset = Vector2( -71.5889, 3.14609 )
+graph_offset = Vector2( -71.5889, -27.6699 )
 
 [sub_resource type="AnimationNodeAnimation" id=87]
 animation = "Skin_Basic"
@@ -1238,13 +1238,11 @@ animation = "Skin_Cowboy"
 [sub_resource type="AnimationNodeAnimation" id=89]
 animation = "Skin_Gun"
 
-[sub_resource type="AnimationNodeAnimation" id=103]
+[sub_resource type="AnimationNodeAnimation" id=90]
 animation = "Skin_Mushroom"
 
-[sub_resource type="AnimationNodeAnimation" id=90]
+[sub_resource type="AnimationNodeAnimation" id=91]
 animation = "Skin_Round"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=91]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=92]
 
@@ -1256,47 +1254,49 @@ animation = "Skin_Round"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=96]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=104]
+[sub_resource type="AnimationNodeStateMachineTransition" id=97]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=105]
+[sub_resource type="AnimationNodeStateMachineTransition" id=98]
 
-[sub_resource type="AnimationNodeStateMachine" id=97]
+[sub_resource type="AnimationNodeStateMachineTransition" id=99]
+
+[sub_resource type="AnimationNodeStateMachine" id=100]
 states/Basic/node = SubResource( 87 )
 states/Basic/position = Vector2( 143, 106 )
 states/Cowboy/node = SubResource( 88 )
 states/Cowboy/position = Vector2( 323, 106 )
 states/Gun/node = SubResource( 89 )
 states/Gun/position = Vector2( 143, 18 )
-states/Mushroom/node = SubResource( 103 )
+states/Mushroom/node = SubResource( 90 )
 states/Mushroom/position = Vector2( 143, 215 )
-states/Round/node = SubResource( 90 )
+states/Round/node = SubResource( 91 )
 states/Round/position = Vector2( -59.245, 106 )
-transitions = [ "Basic", "Cowboy", SubResource( 91 ), "Cowboy", "Basic", SubResource( 92 ), "Basic", "Gun", SubResource( 93 ), "Gun", "Basic", SubResource( 94 ), "Round", "Basic", SubResource( 95 ), "Basic", "Round", SubResource( 96 ), "Mushroom", "Basic", SubResource( 104 ), "Basic", "Mushroom", SubResource( 105 ) ]
+transitions = [ "Basic", "Cowboy", SubResource( 92 ), "Cowboy", "Basic", SubResource( 93 ), "Basic", "Gun", SubResource( 94 ), "Gun", "Basic", SubResource( 95 ), "Round", "Basic", SubResource( 96 ), "Basic", "Round", SubResource( 97 ), "Mushroom", "Basic", SubResource( 98 ), "Basic", "Mushroom", SubResource( 99 ) ]
 start_node = "Basic"
 graph_offset = Vector2( -227.245, 0 )
 
-[sub_resource type="AnimationNodeAdd2" id=98]
+[sub_resource type="AnimationNodeAdd2" id=101]
 
-[sub_resource type="AnimationNodeBlendTree" id=99]
-graph_offset = Vector2( 0, -63.5 )
+[sub_resource type="AnimationNodeBlendTree" id=102]
+graph_offset = Vector2( 0, 254 )
 nodes/Add2/node = SubResource( 34 )
 nodes/Add2/position = Vector2( 300, 0 )
 nodes/PlayerEffect/node = SubResource( 45 )
 nodes/PlayerEffect/position = Vector2( 80, 80 )
 nodes/PlayerMovement/node = SubResource( 86 )
 nodes/PlayerMovement/position = Vector2( 280, 200 )
-nodes/Skin/node = SubResource( 97 )
+nodes/Skin/node = SubResource( 100 )
 nodes/Skin/position = Vector2( 80, -40 )
-nodes/add/node = SubResource( 98 )
+nodes/add/node = SubResource( 101 )
 nodes/add/position = Vector2( 500, 100 )
 nodes/output/position = Vector2( 680, 100 )
 node_connections = [ "output", 0, "add", "Add2", 0, "Skin", "Add2", 1, "PlayerEffect", "add", 0, "PlayerMovement", "add", 1, "Add2" ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=100]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=103]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=101]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=104]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=102]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=105]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "all",
@@ -1372,7 +1372,7 @@ z_index = 1
 texture = ExtResource( 6 )
 vframes = 3
 hframes = 4
-frame = 10
+frame = 8
 
 [node name="swordbox" type="Area2D" parent="ScaleChildren" groups=[
 "hitbox",
@@ -1383,7 +1383,7 @@ script = ExtResource( 3 )
 is_stomp = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScaleChildren/swordbox"]
-position = Vector2( 16, 3 )
+position = Vector2( 12, 3 )
 rotation = 1.5708
 shape = SubResource( 5 )
 disabled = true
@@ -1438,19 +1438,19 @@ anims/true_die = SubResource( 32 )
 anims/walk = SubResource( 33 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 99 )
+tree_root = SubResource( 102 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Add2/add_amount = 0
-parameters/PlayerEffect/playback = SubResource( 100 )
-parameters/PlayerMovement/playback = SubResource( 101 )
+parameters/PlayerEffect/playback = SubResource( 103 )
+parameters/PlayerMovement/playback = SubResource( 104 )
 parameters/PlayerMovement/conditions/jumping = false
 parameters/PlayerMovement/conditions/not_jumping = true
 parameters/PlayerMovement/conditions/not_walking = true
 parameters/PlayerMovement/conditions/slash2 = false
 parameters/PlayerMovement/conditions/walking = false
 parameters/PlayerMovement/idle/blend_position = 0.0
-parameters/Skin/playback = SubResource( 102 )
+parameters/Skin/playback = SubResource( 105 )
 parameters/add/add_amount = 1.0
 
 [node name="SkidRay" type="RayCast2D" parent="."]

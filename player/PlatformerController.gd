@@ -428,9 +428,13 @@ func resume_gravity():
 	gravity_timer.stop()
 
 onready var clash_particle_fx = $ScaleChildren/SlashClashExplosion
+onready var sword_collider = $ScaleChildren/swordbox/CollisionShape2D
 func _on_swordbox_area_entered(area):
 	if area.is_in_group("sword"):
-		bounce(Vector2(-direction/2.0, -1))
-		slash_stun = SLASH_STUN
-		$ScaleChildren/swordbox/CollisionShape2D.disabled = true
-		clash_particle_fx.emitting = true
+		call_deferred("sword_clash")
+
+func sword_clash():
+	bounce(Vector2(-direction/2.0, -1))
+	slash_stun = SLASH_STUN
+	sword_collider.disabled = true
+	clash_particle_fx.emitting = true

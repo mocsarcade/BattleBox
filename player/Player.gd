@@ -28,7 +28,7 @@ func _on_hurtbox_area_entered(area):
 	if area.is_in_group("hitbox") and area.get_parent() != get_parent():
 		var damage = area.get_damage()
 		# Don't damage if swords are colliding
-		if !area.get_is_stomp() and controller.is_slashing():
+		if !area.get_is_stomp() and controller.is_slashing() and controller.get_direction()*area.get_direction() < 0:
 			pass
 		else:
 			damage(damage)
