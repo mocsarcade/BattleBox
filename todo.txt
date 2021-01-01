@@ -1,10 +1,12 @@
-22.25 hrs
+23.25 hrs
 
 Estimated:
 25 hrs + Testing + Fine Tuning = 3 days
 
 Todo:
-New Maps
+Call_deferred when swords clash
+Controllers A button unified and axles not used in moving
+Swords slash when close together even when different directions
 
 Optional:
 Randomize first pick of match and add "Selecting" text

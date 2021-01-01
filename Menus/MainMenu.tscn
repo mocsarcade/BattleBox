@@ -13,8 +13,11 @@
 [ext_resource path="res://Menus/MapSelectionAction.gd" type="Script" id=11]
 
 [node name="MainMenu" type="Control"]
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+margin_top = -300.0
+margin_bottom = 300.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
