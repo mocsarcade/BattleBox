@@ -2,7 +2,7 @@ extends TextureProgress
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimationPlayer.play("flashy")
+	animator['parameters/playback'].travel("flashy")
 
 onready var animator = $AnimationTree
 func animate_spawn():

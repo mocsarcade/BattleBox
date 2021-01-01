@@ -1,7 +1,7 @@
-23.25 hrs
+23.75 hrs
 
 Estimated:
-25 hrs + Testing + Fine Tuning = 3 days
+25 hrs + Testing + Fine Tuning = 1 day
 
 Optional:
 Randomize first pick of match and add "Selecting" text
